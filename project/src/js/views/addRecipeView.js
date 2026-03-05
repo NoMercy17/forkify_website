@@ -23,7 +23,7 @@ class AddRecipeView extends View{
 
 
     _addHandlerShowWindow(){
-        this._buttonOpen.addEventListener('click', this._toggleWindow.bind(this)) // we point to the current object, not the button
+        this._buttonOpen.addEventListener('click', this.toggleWindow.bind(this)) // we point to the current object, not the button
     }
 
     _addHandlerHideWindow(){

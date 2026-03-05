@@ -7,8 +7,8 @@
   "type": "commonjs",
 
   "scripts": {
-    "start": "parcel starter/index.html",
-    "build": "parcel build starter/index.html --dist-dir ./dist"
+    "start": "parcel project/index.html",
+    "build": "parcel build project/index.html --dist-dir ./dist"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.16.4",
