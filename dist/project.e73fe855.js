@@ -729,6 +729,8 @@ var _bookmarksViewJs = require("./views/bookmarksView.js");
 var _bookmarksViewJsDefault = parcelHelpers.interopDefault(_bookmarksViewJs);
 var _addRecipeViewJs = require("./views/addRecipeView.js");
 var _addRecipeViewJsDefault = parcelHelpers.interopDefault(_addRecipeViewJs);
+var _listViewJs = require("./views/listView.js");
+var _listViewJsDefault = parcelHelpers.interopDefault(_listViewJs);
 var _configJs = require("./config.js");
 // firefox additions
 var _400Css = require("@fontsource/nunito-sans/400.css");
@@ -795,7 +797,7 @@ const controlAddRecipe = async function(newRecipe) {
     try {
         (0, _addRecipeViewJsDefault.default).renderSpinner();
         await _modelJs.uploadRecipe(newRecipe);
-        console.log(_modelJs.state.recipe);
+        //console.log(model.state.recipe);
         (0, _recipeViewJsDefault.default).render(_modelJs.state.recipe);
         // Success message
         (0, _addRecipeViewJsDefault.default).renderMessage();
@@ -803,15 +805,24 @@ const controlAddRecipe = async function(newRecipe) {
         (0, _bookmarksViewJsDefault.default).render(_modelJs.state.bookmarks);
         // Change ID in URL
         window.history.pushState(null, '', `#${_modelJs.state.recipe.id}`);
-        // Close form window
-        setTimeout(function() {
-            (0, _addRecipeViewJsDefault.default).toggleWindow();
-        }, (0, _configJs.MODAL_CLOSE_SEC) * 1000);
+        // Close form window (tracked so manual close can cancel it)
+        (0, _addRecipeViewJsDefault.default).scheduleClose((0, _configJs.MODAL_CLOSE_SEC));
     } catch (err) {
         console.error(err + "upload");
         (0, _addRecipeViewJsDefault.default).renderError(err.message);
     }
 // Upload new recipe
+};
+const controlAddToList = function() {
+    _modelJs.addToList(_modelJs.state.recipe.ingredients);
+    (0, _listViewJsDefault.default).render(_modelJs.state.shoppingList);
+};
+const controlRemoveFromList = function(id) {
+    _modelJs.removeFromList(id);
+    (0, _listViewJsDefault.default).render(_modelJs.state.shoppingList);
+};
+const controlRenderList = function() {
+    (0, _listViewJsDefault.default).render(_modelJs.state.shoppingList);
 };
 // Subscriber
 const init = function() {
@@ -819,13 +830,16 @@ const init = function() {
     (0, _recipeViewJsDefault.default).addHandlerRender(controlRecipe);
     (0, _recipeViewJsDefault.default).addHandlerUpdateServings(controlServings);
     (0, _recipeViewJsDefault.default).addHandlerAddBookmark(controlAddBookmark);
+    (0, _recipeViewJsDefault.default).addHandlerAddToList(controlAddToList);
+    (0, _listViewJsDefault.default).addHandlerRender(controlRenderList);
+    (0, _listViewJsDefault.default).addHandlerRemoveItem(controlRemoveFromList);
     (0, _searchViewJsDefault.default).addHandlerSearch(controlSearchResults);
     (0, _paginationViewJsDefault.default).addHandlerClick(controlPagination);
     (0, _addRecipeViewJsDefault.default)._addHandlerUpload(controlAddRecipe);
 };
 init();
 
-},{"core-js/modules/web.immediate.js":"bzsBv","./model.js":"5cviu","./views/recipeView.js":"bAzmy","./views/searchView.js":"lfI0T","./views/resultsView.js":"8effm","./views/paginationView.js":"1VCt0","./views/bookmarksView.js":"gIpUZ","./views/addRecipeView.js":"8tow6","./config.js":"aAdvV","@fontsource/nunito-sans/400.css":"aFD5k","@fontsource/nunito-sans/600.css":"clj2i","@fontsource/nunito-sans/700.css":"7LyPo","regenerator-runtime/runtime":"f6ot0","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"bzsBv":[function(require,module,exports,__globalThis) {
+},{"core-js/modules/web.immediate.js":"bzsBv","./model.js":"5cviu","./views/recipeView.js":"bAzmy","./views/searchView.js":"lfI0T","./views/resultsView.js":"8effm","./views/paginationView.js":"1VCt0","./views/bookmarksView.js":"gIpUZ","./views/addRecipeView.js":"8tow6","./views/listView.js":"fg3OQ","./config.js":"aAdvV","@fontsource/nunito-sans/400.css":"aFD5k","@fontsource/nunito-sans/600.css":"clj2i","@fontsource/nunito-sans/700.css":"7LyPo","regenerator-runtime/runtime":"f6ot0","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"bzsBv":[function(require,module,exports,__globalThis) {
 'use strict';
 // TODO: Remove this module from `core-js@4` since it's split to modules listed below
 require("52e9b3eefbbce1ed");
@@ -2086,6 +2100,8 @@ parcelHelpers.export(exports, "loadRecipe", ()=>loadRecipe);
 parcelHelpers.export(exports, "loadSearchResults", ()=>loadSearchResults);
 parcelHelpers.export(exports, "getSearchResultsPage", ()=>getSearchResultsPage);
 parcelHelpers.export(exports, "updateServings", ()=>updateServings);
+parcelHelpers.export(exports, "addToList", ()=>addToList);
+parcelHelpers.export(exports, "removeFromList", ()=>removeFromList);
 parcelHelpers.export(exports, "addBookmark", ()=>addBookmark);
 parcelHelpers.export(exports, "deleteBookmark", ()=>deleteBookmark);
 parcelHelpers.export(exports, "uploadRecipe", ()=>uploadRecipe);
@@ -2099,7 +2115,8 @@ const state = {
         resultsPerPage: (0, _configJs.RES_PER_PAGE),
         page: 1
     },
-    bookmarks: []
+    bookmarks: [],
+    shoppingList: []
 };
 const createRecipeObject = function(recipe) {
     // recipe is the raw Spoonacular recipe object
@@ -2174,6 +2191,28 @@ const updateServings = function(newServings) {
 const persistBookmarks = function() {
     localStorage.setItem('bookmarks', JSON.stringify(state.bookmarks));
 };
+const persistList = function() {
+    localStorage.setItem('shoppingList', JSON.stringify(state.shoppingList));
+};
+const addToList = function(ingredients, recipeTitle) {
+    ingredients.forEach((ing)=>{
+        // Unique id: recipeTitle + description — prevents same ingredient from same recipe being added twice
+        const id = `${recipeTitle}-${ing.description}`.toLowerCase().replace(/\s+/g, '-');
+        const exists = state.shoppingList.find((item)=>item.id === id);
+        if (exists) return; // skip duplicate from the same recipe
+        state.shoppingList.push({
+            id,
+            quantity: ing.quantity,
+            unit: ing.unit,
+            description: ing.description
+        });
+    });
+    persistList();
+};
+const removeFromList = function(id) {
+    state.shoppingList = state.shoppingList.filter((item)=>item.id !== id);
+    persistList();
+};
 const addBookmark = function(recipe) {
     state.bookmarks.push(recipe);
     // Mark current recipe
@@ -2186,11 +2225,6 @@ const deleteBookmark = function(id) {
     if (id === state.recipe.id) state.recipe.bookmarked = false;
     persistBookmarks();
 };
-const init = function() {
-    const storage = localStorage.getItem('bookmarks');
-    if (storage) state.bookmarks = JSON.parse(storage);
-};
-init();
 const uploadRecipe = async function(newRecipe) {
     try {
         // Collect ingredient rows from separate fields
@@ -2221,6 +2255,13 @@ const uploadRecipe = async function(newRecipe) {
         throw err;
     }
 };
+const init = function() {
+    const storage = localStorage.getItem('bookmarks');
+    if (storage) state.bookmarks = JSON.parse(storage);
+    const listStorage = localStorage.getItem('shoppingList');
+    if (listStorage) state.shoppingList = JSON.parse(listStorage);
+};
+init();
 
 },{"./config.js":"aAdvV","./helpers.js":"5bj7w","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"aAdvV":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -2291,8 +2332,15 @@ const AJAX = async function(url, uploadData) {
             fetchPro,
             timeout((0, _config.TIMEOUT_SEC))
         ]);
+        if (!res.ok) {
+            let message = res.statusText;
+            try {
+                const errData = await res.json();
+                message = errData.message || message;
+            } catch (_) {}
+            throw new Error(`${message} (${res.status})`);
+        }
         const data = await res.json();
-        if (!res.ok) throw new Error(`${data.message} (${res.status})`);
         return data;
     } catch (err) {
         throw err;
@@ -2310,7 +2358,7 @@ var _viewJs = require("./View.js");
 var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
 class RecipeView extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector('.recipe');
-    _errorMessage = 'We could not find that recipe. Please try another one!';
+    _errorMessage = 'Search for a recipe and select it to see the details ;)';
     _message = '';
     // Publisher
     addHandlerRender(handler) {
@@ -2332,6 +2380,13 @@ class RecipeView extends (0, _viewJsDefault.default) {
     addHandlerAddBookmark(handler) {
         this._parentElement.addEventListener('click', function(e) {
             const btn = e.target.closest('.btn--bookmark');
+            if (!btn) return;
+            handler();
+        });
+    }
+    addHandlerAddToList(handler) {
+        this._parentElement.addEventListener('click', function(e) {
+            const btn = e.target.closest('.btn--add-to-list');
             if (!btn) return;
             handler();
         });
@@ -2391,6 +2446,12 @@ class RecipeView extends (0, _viewJsDefault.default) {
                 <ul class="recipe__ingredient-list">
                     ${this._data.ingredients.map(this._generateMarkupIngredient).join('')}
                 </ul>
+                <button class="btn--small btn--add-to-list recipe__btn--add-list">
+                    <svg class="search__icon">
+                        <use href="${0, _iconsSvgDefault.default}#icon-list"></use>
+                    </svg>
+                    <span>Add to List</span>
+                </button>
             </div>
 
             <div class="recipe__directions">
@@ -2938,7 +2999,7 @@ var _previewViewJs = require("./previewView.js");
 var _previewViewJsDefault = parcelHelpers.interopDefault(_previewViewJs);
 class ResultsView extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector('.results');
-    _errorMessage = 'No recipes found for your query! Please try again :)';
+    _errorMessage = 'No recipes found for your query! Please try again.';
     _message = '';
     _generateMarkup() {
         // we don t render it to the DOM, we just return the markup string to render method in View class,
@@ -3078,15 +3139,37 @@ class AddRecipeView extends (0, _viewJsDefault.default) {
     _buttonOpen = document.querySelector('.nav__btn--add-recipe');
     _buttonClose = document.querySelector('.btn--close-modal');
     _message = 'Recipe was successfully uploaded';
+    _closeTimeout = null;
+    _submitting = false;
+    _formMarkup = null;
     constructor(){
         super();
+        this._formMarkup = this._parentElement.innerHTML; // save before any rendering
         this._addHandlerShowWindow();
         this._addHandlerHideWindow();
         this._addHandlerIngredients();
     }
     toggleWindow() {
+        // Cancel any pending auto-close timer
+        if (this._closeTimeout) {
+            clearTimeout(this._closeTimeout);
+            this._closeTimeout = null;
+        }
+        const isOpening = this._window.classList.contains('hidden');
         this._overlay.classList.toggle('hidden');
         this._window.classList.toggle('hidden');
+        // Restore form when opening so it's always fresh
+        if (isOpening) this._resetForm();
+    }
+    // Schedule auto-close after success (stores ID so it can be cancelled)
+    scheduleClose(seconds) {
+        this._closeTimeout = setTimeout(()=>this.toggleWindow(), seconds * 1000);
+    }
+    // Restore original form HTML and reset submission state
+    _resetForm() {
+        this._submitting = false;
+        this._parentElement.innerHTML = this._formMarkup;
+        this._addHandlerIngredients();
     }
     _addHandlerShowWindow() {
         this._buttonOpen.addEventListener('click', this.toggleWindow.bind(this)) // we point to the current object, not the button
@@ -3097,15 +3180,56 @@ class AddRecipeView extends (0, _viewJsDefault.default) {
         this._overlay.addEventListener('click', this.toggleWindow.bind(this));
     }
     _addHandlerUpload(handler) {
-        this._parentElement.addEventListener('submit', function(e) {
+        this._parentElement.addEventListener('submit', (function(e) {
             e.preventDefault();
+            if (this._submitting) return;
+            if (!this._validate()) return; // show errors, stop
+            this._submitting = true;
             const dataArr = [
-                ...new FormData(this)
-            ]; // point to the upload form
-            const data = Object.fromEntries(dataArr); // convert to object
-            console.log(data);
+                ...new FormData(e.target)
+            ];
+            const data = Object.fromEntries(dataArr);
             handler(data);
+        }).bind(this));
+    }
+    _validate() {
+        const p = this._parentElement;
+        const urlPattern = /^https?:\/\/.+\..+/;
+        let valid = true;
+        const check = (input, condition)=>{
+            input.classList.remove('upload__input--error');
+            if (condition) {
+                input.classList.add('upload__input--error');
+                valid = false;
+            }
+        };
+        const title = p.querySelector('[name="title"]');
+        const sourceUrl = p.querySelector('[name="sourceUrl"]');
+        const image = p.querySelector('[name="image"]');
+        const publisher = p.querySelector('[name="publisher"]');
+        const cookingTime = p.querySelector('[name="cookingTime"]');
+        const servings = p.querySelector('[name="servings"]');
+        check(title, !title.value.trim());
+        check(sourceUrl, !urlPattern.test(sourceUrl.value.trim())); // test the regex pattern if it exists
+        check(image, !urlPattern.test(image.value.trim()));
+        check(publisher, !publisher.value.trim());
+        check(cookingTime, !cookingTime.value || +cookingTime.value <= 0 || isNaN(+cookingTime.value));
+        check(servings, !servings.value || +servings.value <= 0 || isNaN(+servings.value));
+        const ingredients_row = p.querySelectorAll('.upload__ingredient-row');
+        // all ingredients must have a description
+        const hasIngredient = [
+            ...ingredients_row
+        ].every((row)=>row.querySelector('[name$="-description"]').value.trim());
+        if (!hasIngredient) // highlight to show what's missing
+        ingredients_row.forEach((row)=>{
+            check(row.querySelector('[name$="-description"]'), true);
         });
+        ingredients_row.forEach((row)=>{
+            const qty = row.querySelector('[name$="-quantity"]');
+            // If qty is provided it must be a positive number
+            check(qty, qty.value !== '' && (+qty.value <= 0 || isNaN(+qty.value)));
+        });
+        return valid;
     }
     _addHandlerIngredients() {
         const container = document.querySelector('#ingredients-list');
@@ -3114,7 +3238,7 @@ class AddRecipeView extends (0, _viewJsDefault.default) {
             const count = container.querySelectorAll('.upload__ingredient-row').length + 1;
             const html = `
                 <div class="upload__ingredient-row">
-                    <input type="number" step="any" name="ingredient-${count}-quantity" placeholder="Qty" />
+                    <input type="number" step="any" min="0.01" name="ingredient-${count}-quantity" placeholder="Qty" />
                     <input type="text" name="ingredient-${count}-unit" placeholder="Unit" />
                     <input type="text" name="ingredient-${count}-description" placeholder="Description" />
                     <button type="button" class="upload__ingredient-delete">&times;</button>
@@ -3122,7 +3246,7 @@ class AddRecipeView extends (0, _viewJsDefault.default) {
             `;
             container.insertAdjacentHTML('beforeend', html);
         });
-        // Delete ingredient row (delegated)
+        // Delete ingredient row, event delegation
         container.addEventListener('click', (e)=>{
             if (e.target.classList.contains('upload__ingredient-delete')) {
                 e.target.closest('.upload__ingredient-row').remove();
@@ -3136,11 +3260,64 @@ class AddRecipeView extends (0, _viewJsDefault.default) {
             }
         });
     }
-    _generateMarkup() {}
 }
 exports.default = new AddRecipeView();
 
-},{"./View.js":"8Rd9W","url:../../img/icons.svg":"gAozM","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"aFD5k":[function() {},{}],"clj2i":[function() {},{}],"7LyPo":[function() {},{}],"f6ot0":[function(require,module,exports,__globalThis) {
+},{"./View.js":"8Rd9W","url:../../img/icons.svg":"gAozM","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"fg3OQ":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _viewJs = require("./View.js");
+var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
+var _iconsSvg = require("url:../../img/icons.svg");
+var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
+var _fractionJs = require("fraction.js");
+var _fractionJsDefault = parcelHelpers.interopDefault(_fractionJs);
+class ListView extends (0, _viewJsDefault.default) {
+    _parentElement = document.querySelector('.shopping-list__list');
+    _errorMessage = 'Your list is empty. Add ingredients from a recipe!';
+    _message = '';
+    _buttonOpen = document.querySelector('.nav__btn--list');
+    constructor(){
+        super();
+        this._addHandlerToggle();
+    }
+    _addHandlerToggle() {
+        this._buttonOpen.addEventListener('click', function() {
+            document.querySelector('.shopping-list').classList.toggle('hidden');
+        });
+    }
+    addHandlerRender(handler) {
+        window.addEventListener('load', handler);
+    }
+    addHandlerRemoveItem(handler) {
+        this._parentElement.addEventListener('click', function(e) {
+            const btn = e.target.closest('.shopping-list__btn--delete');
+            if (!btn) return;
+            handler(btn.dataset.id);
+        });
+    }
+    _generateMarkup() {
+        return this._data.map((item)=>this._generateMarkupItem(item)).join('');
+    }
+    _generateMarkupItem(item) {
+        const qty = item.quantity ? new (0, _fractionJsDefault.default)(item.quantity).toFraction(true) : '';
+        return `
+            <li class="shopping-list__item">
+                <span class="shopping-list__qty">${qty}</span>
+                <span class="shopping-list__unit">${item.unit}</span>
+                <span class="shopping-list__desc">${item.description}</span>
+                <button class="shopping-list__btn--delete" data-id="${item.id}">
+                    <svg>
+                        <use href="${0, _iconsSvgDefault.default}#icon-minus-circle"></use>
+                    </svg>
+                </button>
+            </li>
+        `;
+    }
+}
+exports.default = new ListView();
+
+},{"./View.js":"8Rd9W","url:../../img/icons.svg":"gAozM","fraction.js":"md6n5","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"aFD5k":[function() {},{}],"clj2i":[function() {},{}],"7LyPo":[function() {},{}],"f6ot0":[function(require,module,exports,__globalThis) {
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *

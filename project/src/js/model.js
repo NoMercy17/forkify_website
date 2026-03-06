@@ -10,8 +10,8 @@ export const state = {
         resultsPerPage: RES_PER_PAGE,
         page: 1,
     },
-    bookmarks:[]
-
+    bookmarks:[],
+    shoppingList: [],
 };
 
 const createRecipeObject = function(recipe){
@@ -108,6 +108,33 @@ const persistBookmarks = function(){
     localStorage.setItem('bookmarks', JSON.stringify(state.bookmarks));
 };
 
+const persistList = function(){
+    localStorage.setItem('shoppingList', JSON.stringify(state.shoppingList));
+};
+
+export const addToList = function(ingredients, recipeTitle){
+    ingredients.forEach(ing => {
+        // Unique id: recipeTitle + description — prevents same ingredient from same recipe being added twice
+        const id = `${recipeTitle}-${ing.description}`.toLowerCase().replace(/\s+/g, '-');
+
+        const exists = state.shoppingList.find(item => item.id === id);
+        if(exists) return; // skip duplicate from the same recipe
+
+        state.shoppingList.push({
+            id,
+            quantity: ing.quantity,
+            unit: ing.unit,
+            description: ing.description,
+        });
+    });
+    persistList();
+};
+
+export const removeFromList = function(id){
+    state.shoppingList = state.shoppingList.filter(item => item.id !== id);
+    persistList();
+};
+
 
 export const addBookmark = function(recipe){
     state.bookmarks.push(recipe);
@@ -129,14 +156,6 @@ export const deleteBookmark = function(id){
 
     persistBookmarks();
 };
-
-const init = function(){
-    const storage = localStorage.getItem('bookmarks');
-    if(storage) state.bookmarks = JSON.parse(storage);
-
-};
-
-init();
 
 
 export const uploadRecipe = async function(newRecipe){
@@ -181,3 +200,13 @@ export const uploadRecipe = async function(newRecipe){
     };
 
 };
+
+const init = function(){
+    const storage = localStorage.getItem('bookmarks');
+    if(storage) state.bookmarks = JSON.parse(storage);
+
+    const listStorage = localStorage.getItem('shoppingList');
+    if(listStorage) state.shoppingList = JSON.parse(listStorage);
+};
+
+init();

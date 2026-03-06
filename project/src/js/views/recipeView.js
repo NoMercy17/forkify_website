@@ -6,7 +6,7 @@ import View from './View.js';
 
 class RecipeView extends View{
     _parentElement = document.querySelector('.recipe');
-    _errorMessage = 'We could not find that recipe. Please try another one!';
+    _errorMessage = 'Search for a recipe and select it to see the details ;)';
     _message = '';
     
 
@@ -24,7 +24,7 @@ class RecipeView extends View{
             const {updateTo} = btn.dataset;
             if(! +updateTo) return;
             
-            if(+updateTo > 0){
+            if(+updateTo > 0){  
                 handler(+updateTo);
             }
         });
@@ -36,6 +36,14 @@ class RecipeView extends View{
             if(!btn) return;
             handler();
         })
+    }
+
+    addHandlerAddToList(handler){
+        this._parentElement.addEventListener('click', function(e){
+            const btn = e.target.closest('.btn--add-to-list');
+            if(!btn) return;
+            handler();
+        });
     }
 
     _generateMarkup(){
@@ -93,6 +101,12 @@ class RecipeView extends View{
                 <ul class="recipe__ingredient-list">
                     ${this._data.ingredients.map(this._generateMarkupIngredient).join('')}
                 </ul>
+                <button class="btn--small btn--add-to-list recipe__btn--add-list">
+                    <svg class="search__icon">
+                        <use href="${icons}#icon-list"></use>
+                    </svg>
+                    <span>Add to List</span>
+                </button>
             </div>
 
             <div class="recipe__directions">

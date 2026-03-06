@@ -27,6 +27,18 @@
         <nav class="nav">
           <ul class="nav__list">
             <li class="nav__item">
+              <button class="nav__btn nav__btn--list">
+                <svg class="nav__icon">
+                  <use href="/icons.e8747649.svg#icon-list"></use>
+                </svg>
+                <span>My List</span>
+              </button>
+              <div class="shopping-list hidden">
+                <ul class="shopping-list__list"></ul>
+              </div>
+            </li>
+
+            <li class="nav__item">
               <button class="nav__btn nav__btn--add-recipe">
                 <svg class="nav__icon">
                   <use href="/icons.e8747649.svg#icon-edit"></use>
@@ -34,6 +46,7 @@
                 <span>Add recipe</span>
               </button>
             </li>
+
             <li class="nav__item">
               <button class="nav__btn nav__btn--bookmarks">
                 <svg class="nav__icon">
@@ -242,17 +255,17 @@
         <div class="upload__column">
           <h3 class="upload__heading">Recipe data</h3>
           <label>Title</label>
-          <input value="TEST17" required="" name="title" type="text">
+          <input required="" name="title" type="text" placeholder="e.g. Pasta Carbonara">
           <label>URL</label>
-          <input value="TEST17" required="" name="sourceUrl" type="text">
+          <input required="" name="sourceUrl" type="text" placeholder="e.g. https://myrecipe.com/pasta">
           <label>Image URL</label>
-          <input value="TEST17" required="" name="image" type="text">
+          <input required="" name="image" type="text" placeholder="e.g. https://myrecipe.com/img.jpg">
           <label>Publisher</label>
-          <input value="TEST17" required="" name="publisher" type="text">
+          <input required="" name="publisher" type="text" placeholder="e.g. The Pioneer Woman">
           <label>Prep time</label>
-          <input value="23" required="" name="cookingTime" type="number">
+          <input required="" name="cookingTime" type="number" min="1" placeholder="e.g. 30">
           <label>Servings</label>
-          <input value="23" required="" name="servings" type="number">
+          <input required="" name="servings" type="number" min="1" placeholder="e.g. 4">
         </div>
 
         <div class="upload__column upload__column--ingredients">
@@ -266,21 +279,21 @@
 
           <div class="upload__ingredient-list" id="ingredients-list">
             <div class="upload__ingredient-row">
-              <input type="number" step="any" name="ingredient-1-quantity" placeholder="0.5">
+              <input type="number" step="any" name="ingredient-1-quantity" placeholder="0.5" min="0.01">
               <input type="text" name="ingredient-1-unit" placeholder="kg">
               <input type="text" name="ingredient-1-description" placeholder="Rice" required="">
               <button type="button" class="upload__ingredient-delete">×</button>
             </div>
 
             <div class="upload__ingredient-row">
-              <input type="number" step="any" name="ingredient-2-quantity" placeholder="1">
+              <input type="number" step="any" name="ingredient-2-quantity" placeholder="1" min="0.01">
               <input type="text" name="ingredient-2-unit" placeholder="cup">
               <input type="text" name="ingredient-2-description" placeholder="Avocado">
               <button type="button" class="upload__ingredient-delete">×</button>
             </div>
 
             <div class="upload__ingredient-row">
-              <input type="number" step="any" name="ingredient-3-quantity" placeholder="2">
+              <input type="number" step="any" name="ingredient-3-quantity" placeholder="2" min="0.01">
               <input type="text" name="ingredient-3-unit" placeholder="tbsp">
               <input type="text" name="ingredient-3-description" placeholder="Salt">
               <button type="button" class="upload__ingredient-delete">×</button>

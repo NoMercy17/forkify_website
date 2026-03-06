@@ -20,9 +20,14 @@ export const AJAX = async function(url, uploadData = undefined){
             : fetch(url);
 
         const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
+
+        if(!res.ok){
+            let message = res.statusText;
+            try { const errData = await res.json(); message = errData.message || message; } catch(_) {}
+            throw new Error(`${message} (${res.status})`);
+        }
+
         const data = await res.json();
-    
-        if(!res.ok) throw new Error(`${data.message} (${res.status})`);
         return data;
 
     }catch(err){

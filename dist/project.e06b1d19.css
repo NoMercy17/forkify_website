@@ -392,6 +392,78 @@ body {
   opacity: 1;
 }
 
+.shopping-list {
+  z-index: 10;
+  background-color: #fff;
+  width: 40rem;
+  padding: 1rem 0;
+  position: absolute;
+  right: -2.5rem;
+  box-shadow: 0 .8rem 5rem 2rem #6155511a;
+}
+
+.shopping-list.hidden {
+  display: none;
+}
+
+.shopping-list__list {
+  max-height: 40rem;
+  padding: .5rem 0;
+  list-style: none;
+  overflow-y: auto;
+}
+
+.shopping-list__item {
+  grid-template-columns: 5rem 6rem 1fr 3rem;
+  align-items: center;
+  gap: .5rem;
+  padding: .8rem 2rem;
+  font-size: 1.4rem;
+  transition: background-color .2s;
+  display: grid;
+}
+
+.shopping-list__item:hover {
+  background-color: #f2efee;
+}
+
+.shopping-list__qty {
+  color: #f38e82;
+  text-align: right;
+  font-weight: 700;
+}
+
+.shopping-list__unit {
+  color: #918581;
+  font-style: italic;
+}
+
+.shopping-list__desc {
+  text-transform: capitalize;
+}
+
+.shopping-list__btn--delete {
+  cursor: pointer;
+  color: #918581;
+  background: none;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  padding: .3rem;
+  transition: color .2s;
+  display: flex;
+}
+
+.shopping-list__btn--delete:hover {
+  color: #f38e82;
+}
+
+.shopping-list__btn--delete svg {
+  fill: currentColor;
+  width: 2rem;
+  height: 2rem;
+}
+
 .preview__link:link, .preview__link:visited {
   border-right: 1px solid #fff;
   align-items: center;
@@ -648,6 +720,7 @@ body {
 .recipe__ingredient-list {
   grid-template-columns: 1fr 1fr;
   gap: 2.5rem 3rem;
+  margin-bottom: 3rem;
   list-style: none;
   display: grid;
 }
@@ -733,7 +806,7 @@ body {
 
 .upload {
   grid-template-columns: 1fr 1fr;
-  gap: 4rem 6rem;
+  gap: 2rem 4rem;
   display: grid;
 }
 
@@ -753,7 +826,7 @@ body {
 .upload__column input {
   border: 1px solid #ddd;
   border-radius: .5rem;
-  padding: .8rem 1rem;
+  padding: .8rem 1rem .8rem 1.6rem;
   font-size: 1.5rem;
   transition: all .2s;
 }
@@ -846,5 +919,10 @@ body {
 .upload__btn {
   grid-column: 1 / -1;
   justify-self: center;
+}
+
+.upload__input--error {
+  background-color: #fdf0f0 !important;
+  border-color: #e74c3c !important;
 }
 /*# sourceMappingURL=project.e06b1d19.css.map */

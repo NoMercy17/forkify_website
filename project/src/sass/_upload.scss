@@ -45,7 +45,7 @@
 .upload {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem 6rem;
+  gap: 2rem 4rem;
 
   &__column {
     display: grid;
@@ -61,7 +61,7 @@
 
     & input {
       font-size: 1.5rem;
-      padding: 0.8rem 1rem;
+      padding: 0.8rem 1rem 0.8rem 1.6rem;
       border: 1px solid #ddd;
       border-radius: 0.5rem;
       transition: all 0.2s;
@@ -96,7 +96,7 @@
   &__column--ingredients {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 0rem;
   }
 
   &__ingredient-header {
@@ -157,5 +157,10 @@
   &__btn {
     grid-column: 1 / -1;
     justify-self: center;
+  }
+
+  &__input--error {
+    border-color: #e74c3c !important;
+    background-color: #fdf0f0 !important;
   }
 }

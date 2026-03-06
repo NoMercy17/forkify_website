@@ -5,6 +5,7 @@ import resultsView from './views/resultsView.js';
 import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
+import listView from './views/listView.js';
 import { MODAL_CLOSE_SEC } from './config.js';
 
 // firefox additions
@@ -110,10 +111,9 @@ const controlAddRecipe = async function(newRecipe){
     addRecipeView.renderSpinner();
 
     await model.uploadRecipe(newRecipe);
-    console.log(model.state.recipe);
+    //console.log(model.state.recipe);
 
     recipeView.render(model.state.recipe); 
-
 
     // Success message
     addRecipeView.renderMessage();
@@ -124,10 +124,8 @@ const controlAddRecipe = async function(newRecipe){
     // Change ID in URL
     window.history.pushState(null, '', `#${model.state.recipe.id}`);
 
-    // Close form window
-    setTimeout(function(){
-      addRecipeView.toggleWindow();
-    }, MODAL_CLOSE_SEC * 1000);
+    // Close form window (tracked so manual close can cancel it)
+    addRecipeView.scheduleClose(MODAL_CLOSE_SEC);
 
   }catch(err){
       console.error(err+"upload");
@@ -137,14 +135,33 @@ const controlAddRecipe = async function(newRecipe){
 }
 
 
+const controlAddToList = function () {
+  model.addToList(model.state.recipe.ingredients);
+  listView.render(model.state.shoppingList);
+};
+
+const controlRemoveFromList = function (id) {
+  model.removeFromList(id);
+  listView.render(model.state.shoppingList);
+};
+
+const controlRenderList = function () {
+  listView.render(model.state.shoppingList);
+};
+
 // Subscriber
 const init = function(){
 
   bookmarksView.addHandlerRender(controlBookmarks);
 
+
   recipeView.addHandlerRender(controlRecipe);
   recipeView.addHandlerUpdateServings(controlServings);
   recipeView.addHandlerAddBookmark(controlAddBookmark);
+  recipeView.addHandlerAddToList(controlAddToList);
+
+  listView.addHandlerRender(controlRenderList);
+  listView.addHandlerRemoveItem(controlRemoveFromList);
 
   searchView.addHandlerSearch(controlSearchResults);
 
