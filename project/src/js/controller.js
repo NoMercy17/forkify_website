@@ -6,7 +6,7 @@ import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
 import listView from './views/listView.js';
-const MODAL_CLOSE_SEC = Number(process.env.MODAL_CLOSE_SEC);
+const MODAL_CLOSE_SEC = Number(process.env.MODAL_CLOSE_SEC) || 2.5;
 
 // firefox additions
 import '@fontsource/nunito-sans/400.css';
@@ -64,7 +64,7 @@ const controlSearchResults = async function(){
     // Render initial pagination
     paginationView.render(model.state.search);
   }catch(err){
-    console.log(err);
+    resultsView.renderError();
   }
 }
 
@@ -128,7 +128,6 @@ const controlAddRecipe = async function(newRecipe){
     addRecipeView.scheduleClose(MODAL_CLOSE_SEC);
 
   }catch(err){
-      console.error(err+"upload");
       addRecipeView.renderError(err.message);
   }
   // Upload new recipe
