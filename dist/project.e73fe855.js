@@ -731,12 +731,12 @@ var _addRecipeViewJs = require("./views/addRecipeView.js");
 var _addRecipeViewJsDefault = parcelHelpers.interopDefault(_addRecipeViewJs);
 var _listViewJs = require("./views/listView.js");
 var _listViewJsDefault = parcelHelpers.interopDefault(_listViewJs);
-var _configJs = require("./config.js");
 // firefox additions
 var _400Css = require("@fontsource/nunito-sans/400.css");
 var _600Css = require("@fontsource/nunito-sans/600.css");
 var _700Css = require("@fontsource/nunito-sans/700.css");
 var _runtime = require("regenerator-runtime/runtime"); // for polyfilling async await
+const MODAL_CLOSE_SEC = Number("2.5");
 ///////////////////////////////////////
 const controlRecipe = async function() {
     try {
@@ -806,7 +806,7 @@ const controlAddRecipe = async function(newRecipe) {
         // Change ID in URL
         window.history.pushState(null, '', `#${_modelJs.state.recipe.id}`);
         // Close form window (tracked so manual close can cancel it)
-        (0, _addRecipeViewJsDefault.default).scheduleClose((0, _configJs.MODAL_CLOSE_SEC));
+        (0, _addRecipeViewJsDefault.default).scheduleClose(MODAL_CLOSE_SEC);
     } catch (err) {
         console.error(err + "upload");
         (0, _addRecipeViewJsDefault.default).renderError(err.message);
@@ -839,7 +839,7 @@ const init = function() {
 };
 init();
 
-},{"core-js/modules/web.immediate.js":"bzsBv","./model.js":"5cviu","./views/recipeView.js":"bAzmy","./views/searchView.js":"lfI0T","./views/resultsView.js":"8effm","./views/paginationView.js":"1VCt0","./views/bookmarksView.js":"gIpUZ","./views/addRecipeView.js":"8tow6","./views/listView.js":"fg3OQ","./config.js":"aAdvV","@fontsource/nunito-sans/400.css":"aFD5k","@fontsource/nunito-sans/600.css":"clj2i","@fontsource/nunito-sans/700.css":"7LyPo","regenerator-runtime/runtime":"f6ot0","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"bzsBv":[function(require,module,exports,__globalThis) {
+},{"core-js/modules/web.immediate.js":"bzsBv","./model.js":"5cviu","./views/recipeView.js":"bAzmy","./views/searchView.js":"lfI0T","./views/resultsView.js":"8effm","./views/paginationView.js":"1VCt0","./views/bookmarksView.js":"gIpUZ","./views/addRecipeView.js":"8tow6","./views/listView.js":"fg3OQ","@fontsource/nunito-sans/400.css":"aFD5k","@fontsource/nunito-sans/600.css":"clj2i","@fontsource/nunito-sans/700.css":"7LyPo","regenerator-runtime/runtime":"f6ot0","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"bzsBv":[function(require,module,exports,__globalThis) {
 'use strict';
 // TODO: Remove this module from `core-js@4` since it's split to modules listed below
 require("52e9b3eefbbce1ed");
@@ -2105,14 +2105,16 @@ parcelHelpers.export(exports, "removeFromList", ()=>removeFromList);
 parcelHelpers.export(exports, "addBookmark", ()=>addBookmark);
 parcelHelpers.export(exports, "deleteBookmark", ()=>deleteBookmark);
 parcelHelpers.export(exports, "uploadRecipe", ()=>uploadRecipe);
-var _configJs = require("./config.js");
 var _helpersJs = require("./helpers.js");
+const API_URL = "https://api.spoonacular.com/recipes/";
+const RES_PER_PAGE = Number("10");
+const KEY = "5bb2e2927f154e43b7a075fcffbcbbe1";
 const state = {
     recipe: {},
     search: {
         query: '',
         results: [],
-        resultsPerPage: (0, _configJs.RES_PER_PAGE),
+        resultsPerPage: RES_PER_PAGE,
         page: 1
     },
     bookmarks: [],
@@ -2144,7 +2146,7 @@ const loadRecipe = async function(id) {
         const userRecipe = state.bookmarks.find((b)=>b.id === id && b.key);
         if (userRecipe) state.recipe = userRecipe;
         else {
-            const data = await (0, _helpersJs.AJAX)(`${(0, _configJs.API_URL)}${id}/information?apiKey=${(0, _configJs.KEY)}`);
+            const data = await (0, _helpersJs.AJAX)(`${API_URL}${id}/information?apiKey=${KEY}`);
             state.recipe = createRecipeObject(data);
         }
         state.recipe.bookmarked = state.bookmarks.some((bookmark)=>bookmark.id === state.recipe.id);
@@ -2158,7 +2160,7 @@ const loadSearchResults = async function(query) {
     try {
         state.search.query = query;
         // Spoonacular complexSearch with full recipe info included
-        const data = await (0, _helpersJs.AJAX)(`${(0, _configJs.API_URL)}complexSearch?query=${query}&apiKey=${(0, _configJs.KEY)}&addRecipeInformation=true&number=50`);
+        const data = await (0, _helpersJs.AJAX)(`${API_URL}complexSearch?query=${query}&apiKey=${KEY}&addRecipeInformation=true&number=50`);
         // Merge API results with any locally stored user recipes that match the query
         const localMatches = state.bookmarks.filter((b)=>b.key && b.title.toLowerCase().includes(query.toLowerCase()));
         state.search.results = [
@@ -2178,8 +2180,8 @@ const loadSearchResults = async function(query) {
 };
 const getSearchResultsPage = function(page = state.search.page) {
     state.search.page = page;
-    const start = (page - 1) * (0, _configJs.RES_PER_PAGE);
-    const end = page * (0, _configJs.RES_PER_PAGE);
+    const start = (page - 1) * RES_PER_PAGE;
+    const end = page * RES_PER_PAGE;
     return state.search.results.slice(start, end); // -1 at the end because of slice
 };
 const updateServings = function(newServings) {
@@ -2263,19 +2265,45 @@ const init = function() {
 };
 init();
 
-},{"./config.js":"aAdvV","./helpers.js":"5bj7w","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"aAdvV":[function(require,module,exports,__globalThis) {
+},{"./helpers.js":"5bj7w","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"5bj7w":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "API_URL", ()=>API_URL);
-parcelHelpers.export(exports, "TIMEOUT_SEC", ()=>TIMEOUT_SEC);
-parcelHelpers.export(exports, "RES_PER_PAGE", ()=>RES_PER_PAGE);
-parcelHelpers.export(exports, "KEY", ()=>KEY);
-parcelHelpers.export(exports, "MODAL_CLOSE_SEC", ()=>MODAL_CLOSE_SEC);
-const API_URL = 'https://api.spoonacular.com/recipes/';
-const TIMEOUT_SEC = 10;
-const RES_PER_PAGE = 10;
-const KEY = '5bb2e2927f154e43b7a075fcffbcbbe1';
-const MODAL_CLOSE_SEC = 2.5;
+parcelHelpers.export(exports, "AJAX", ()=>AJAX);
+const TIMEOUT_SEC = Number("10");
+const timeout = function(s) {
+    return new Promise(function(_, reject) {
+        setTimeout(function() {
+            reject(new Error(`Request took too long! Timeout after ${s} second`));
+        }, s * 1000);
+    });
+};
+const AJAX = async function(url, uploadData) {
+    try {
+        const fetchPro = uploadData ? fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json' // we specify the data is in json format
+            },
+            body: JSON.stringify(uploadData)
+        }) : fetch(url);
+        const res = await Promise.race([
+            fetchPro,
+            timeout(TIMEOUT_SEC)
+        ]);
+        if (!res.ok) {
+            let message = res.statusText;
+            try {
+                const errData = await res.json();
+                message = errData.message || message;
+            } catch (_) {}
+            throw new Error(`${message} (${res.status})`);
+        }
+        const data = await res.json();
+        return data;
+    } catch (err) {
+        throw err;
+    }
+};
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jnFvT":[function(require,module,exports,__globalThis) {
 exports.interopDefault = function(a) {
@@ -2307,47 +2335,7 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"5bj7w":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "AJAX", ()=>AJAX);
-var _config = require("./config");
-const timeout = function(s) {
-    return new Promise(function(_, reject) {
-        setTimeout(function() {
-            reject(new Error(`Request took too long! Timeout after ${s} second`));
-        }, s * 1000);
-    });
-};
-const AJAX = async function(url, uploadData) {
-    try {
-        const fetchPro = uploadData ? fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json' // we specify the data is in json format
-            },
-            body: JSON.stringify(uploadData)
-        }) : fetch(url);
-        const res = await Promise.race([
-            fetchPro,
-            timeout((0, _config.TIMEOUT_SEC))
-        ]);
-        if (!res.ok) {
-            let message = res.statusText;
-            try {
-                const errData = await res.json();
-                message = errData.message || message;
-            } catch (_) {}
-            throw new Error(`${message} (${res.status})`);
-        }
-        const data = await res.json();
-        return data;
-    } catch (err) {
-        throw err;
-    }
-};
-
-},{"./config":"aAdvV","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"bAzmy":[function(require,module,exports,__globalThis) {
+},{}],"bAzmy":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _iconsSvg = require("url:../../img/icons.svg");

@@ -6,7 +6,7 @@ import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
 import listView from './views/listView.js';
-import { MODAL_CLOSE_SEC } from './config.js';
+const MODAL_CLOSE_SEC = Number(process.env.MODAL_CLOSE_SEC);
 
 // firefox additions
 import '@fontsource/nunito-sans/400.css';

@@ -1,4 +1,6 @@
-import { API_URL, RES_PER_PAGE, KEY } from './config.js';
+const API_URL = process.env.API_URL;
+const RES_PER_PAGE = Number(process.env.RES_PER_PAGE);
+const KEY = process.env.KEY;
 import { AJAX } from './helpers.js';
 
 

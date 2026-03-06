@@ -1,4 +1,4 @@
-import { TIMEOUT_SEC } from "./config";
+const TIMEOUT_SEC = Number(process.env.TIMEOUT_SEC);
 
 const timeout = function (s) {
   return new Promise(function (_, reject) {
