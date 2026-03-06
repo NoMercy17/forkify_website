@@ -1,5 +1,5 @@
 const API_URL = process.env.API_URL;
-const RES_PER_PAGE = Number(process.env.RES_PER_PAGE);
+const RES_PER_PAGE = Number(process.env.RES_PER_PAGE) || 10;
 const KEY = process.env.KEY;
 import { AJAX } from './helpers.js';
 
@@ -48,11 +48,8 @@ export const loadRecipe = async function(id){
 
         state.recipe.bookmarked = state.bookmarks.some(bookmark => bookmark.id === state.recipe.id);
 
-        console.log(state.recipe);
-
     }catch(err){
-        console.error(err + 'ours');
-        throw err; // throw error to propagate, to controller
+        throw err;
     };
 };
 
@@ -81,7 +78,6 @@ export const loadSearchResults = async function(query){
         state.search.page = 1; // reset page to 1 when new search is made
 
     }catch(err){
-        console.log(err + 'search');
         throw err;
     };
 };

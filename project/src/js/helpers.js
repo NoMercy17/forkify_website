@@ -1,4 +1,4 @@
-const TIMEOUT_SEC = Number(process.env.TIMEOUT_SEC);
+const TIMEOUT_SEC = Number(process.env.TIMEOUT_SEC) || 10;
 
 const timeout = function (s) {
   return new Promise(function (_, reject) {
