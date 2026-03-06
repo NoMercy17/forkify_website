@@ -1,38 +1,32 @@
-7842
-98/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-latin-ext-600-normal.a8ed1c27.woff21772725023667652835 0
-75/home/nomercy17/Documents/udemy_js/18-forkify/dist/starter.c1ff72c9.css.map1772725023676652902 0
-74/home/nomercy17/Documents/udemy_js/18-forkify/dist/starter.6a102e84.js.map1772725023676652902 0
-97/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-cyrillic-400-normal.aae26fd4.woff21772725023665652820 0
-101/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-cyrillic-ext-400-normal.51a99704.woff21772725023665652820 0
-99/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-vietnamese-400-normal.a6d4d915.woff21772725023665652820 0
-93/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-latin-700-normal.766f548b.woff1772725023482651458 0
-99/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-vietnamese-700-normal.b3a8c199.woff21772725023667652835 0
-61/home/nomercy17/Documents/udemy_js/18-forkify/dist/index.html1772725023673652879 0
-93/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-latin-400-normal.9420f7d8.woff1772725023482651458 0
-71/home/nomercy17/Documents/udemy_js/18-forkify/dist/starter.c1ff72c9.css1772725023673652879 0
-98/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-vietnamese-400-normal.3b0377f9.woff1772725023482651458 0
-96/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-cyrillic-600-normal.f22c338a.woff1772725023482651458 0
-71/home/nomercy17/Documents/udemy_js/18-forkify/dist/favicon.38ab3f7a.png1772725023481651451 0
-93/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-latin-600-normal.8acf92cb.woff1772725023482651458 0
-71/home/nomercy17/Documents/udemy_js/18-forkify/dist/starter.5e022ed2.css1772725023673652879 0
-100/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-cyrillic-ext-400-normal.c14e931f.woff1772725023482651458 0
-98/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-latin-ext-400-normal.47c21e68.woff21772725023665652820 0
-50/home/nomercy17/Documents/udemy_js/18-forkify/dist1772725023676652902 1
-71/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/img/icons.svg1769334458412573775 0
-75/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/sass/_upload.scss1769334458413573778 0
-72/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/sass/main.scss1771934488905669029 0
-75/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/sass/_recipe.scss1769334458413573778 0
-75/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/sass/_header.scss1769334458413573778 0
-79/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/sass/_components.scss1769334458413573778 0
-62/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/sass1769334458413573778 1
-81/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/js/views/resultsView.js1772716221696300150 0
-80/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/js/views/recipeView.js1772722691105777778 0
-74/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/js/views/View.js1772723398468755309 0
-83/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/js/views/addRecipeView.js1772721666353478464 0
-83/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/js/views/bookmarksView.js1772716516169875291 0
-71/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/js/helpers.js1772722281547290932 0
-93/home/nomercy17/Documents/udemy_js/18-forkify/starter/forkify-architecture-recipe-loading.png1769334458406573758 0
-53/home/nomercy17/Documents/udemy_js/18-forkify/starter1769334458412573775 1
+7841
+98/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-latin-ext-600-normal.a8ed1c27.woff21772788371335114968 0
+97/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-cyrillic-400-normal.aae26fd4.woff21772788371335114968 0
+101/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-cyrillic-ext-400-normal.51a99704.woff21772788371335114968 0
+99/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-vietnamese-400-normal.a6d4d915.woff21772788371334114967 0
+93/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-latin-700-normal.766f548b.woff1772788371150114779 0
+99/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-vietnamese-700-normal.b3a8c199.woff21772788371335114968 0
+61/home/nomercy17/Documents/udemy_js/18-forkify/dist/index.html1772788371341114974 0
+93/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-latin-400-normal.9420f7d8.woff1772788371150114779 0
+98/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-vietnamese-400-normal.3b0377f9.woff1772788371150114779 0
+71/home/nomercy17/Documents/udemy_js/18-forkify/dist/project.2753df32.css1772788371341114974 0
+96/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-cyrillic-600-normal.f22c338a.woff1772788371150114779 0
+71/home/nomercy17/Documents/udemy_js/18-forkify/dist/favicon.38ab3f7a.png1772788371150114779 0
+93/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-latin-600-normal.8acf92cb.woff1772788371150114779 0
+100/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-cyrillic-ext-400-normal.c14e931f.woff1772788371147114776 0
+98/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-latin-ext-400-normal.47c21e68.woff21772788371335114968 0
+50/home/nomercy17/Documents/udemy_js/18-forkify/dist1772788371344114978 1
+56/home/nomercy17/Documents/udemy_js/18-forkify/.gitignore1772788338076098655 0
+61/home/nomercy17/Documents/udemy_js/18-forkify/project/src/img1769334458412573775 1
+75/home/nomercy17/Documents/udemy_js/18-forkify/project/src/sass/_header.scss1769334458413573778 0
+62/home/nomercy17/Documents/udemy_js/18-forkify/project/src/sass1769334458413573778 1
+81/home/nomercy17/Documents/udemy_js/18-forkify/project/src/js/views/resultsView.js1772716221696300150 0
+74/home/nomercy17/Documents/udemy_js/18-forkify/project/src/js/views/View.js1772723398468755309 0
+84/home/nomercy17/Documents/udemy_js/18-forkify/project/src/js/views/paginationView.js1772204612890454524 0
+66/home/nomercy17/Documents/udemy_js/18-forkify/project/src/js/views1772716969574852216 1
+71/home/nomercy17/Documents/udemy_js/18-forkify/project/src/js/helpers.js1772722281547290932 0
+57/home/nomercy17/Documents/udemy_js/18-forkify/project/src1769334458413573778 1
+64/home/nomercy17/Documents/udemy_js/18-forkify/project/index.html1772720910296189725 0
+53/home/nomercy17/Documents/udemy_js/18-forkify/project1772726315100559682 1
 63/home/nomercy17/Documents/udemy_js/18-forkify/package-lock.json1771949356946898749 0
 81/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/safe-buffer/index.d.ts1771933381521465378 0
 78/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/safe-buffer/LICENSE1771933381495465170 0
@@ -253,7 +247,6 @@
 111/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/esm/_object_without_properties_loose.js1771933381652466429 0
 83/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/esm/_get.js1771933381642466348 0
 104/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/esm/_interop_require_wildcard.js1771933381647466389 0
-57/home/nomercy17/Documents/udemy_js/18-forkify/starter/src1769334458413573778 1
 94/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/esm/_overload_yield.js1771933381653466437 0
 115/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/esm/_class_static_private_field_spec_get.js1771933381637466308 0
 100/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/esm/_wrap_async_generator.js1771933381667466549 0
@@ -304,6 +297,7 @@
 105/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/_/_apply_decs_2203_r/package.json1771933381671466581 0
 104/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/_/_array_with_holes/package.json1771933381671466581 0
 91/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/_/_array_with_holes1771933381671466581 1
+80/home/nomercy17/Documents/udemy_js/18-forkify/project/src/js/views/recipeView.js1772722691105777778 0
 123/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/_/_create_for_of_iterator_helper_loose/package.json1771933381688466717 0
 110/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/_/_create_for_of_iterator_helper_loose1771933381688466717 1
 87/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/_/_create_super1771933381688466717 1
@@ -350,7 +344,6 @@
 105/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/_/_wrap_native_super/package.json1771933381709466886 0
 91/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/src/_instanceof.mjs1771933381721466982 0
 92/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/_/_wrap_native_super1771933381709466886 1
-61/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/img1769334458412573775 1
 96/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/_/_to_array/package.json1771933381705466854 0
 112/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/_/_interop_require_wildcard/package.json1771933381695466773 0
 99/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/_/_interop_require_wildcard1771933381695466773 1
@@ -395,7 +388,7 @@
 126/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/_/_class_static_private_field_destructure/package.json1771933381683466678 0
 113/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/_/_class_static_private_field_destructure1771933381683466678 1
 89/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/_/_overload_yield1771933381701466822 1
-98/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-latin-ext-700-normal.eef3abc1.woff21772725023667652835 0
+98/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-latin-ext-700-normal.eef3abc1.woff21772788371335114968 0
 105/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/cjs/_class_private_field_init.cjs1771933381577465827 0
 103/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/_/_define_enumerable_properties1771933381690466733 1
 111/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/_/_interop_require_default/package.json1771933381695466773 0
@@ -565,7 +558,6 @@
 92/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/graph/src/ContentGraph.js1771933381556465659 0
 84/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/src/_set.mjs1771933381724467006 0
 80/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/graph/LICENSE1771933381495465170 0
-82/home/nomercy17/Documents/udemy_js/18-forkify/starter/forkify-flowchart-part-2.png1769334458409573767 0
 85/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/graph/lib/Graph.js1771933381561465699 0
 99/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/graph/test/AdjacencyList.test.js1771933381542465547 0
 89/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/graph/test/integration1771933381505465250 1
@@ -578,7 +570,7 @@
 93/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/src/_create_super.mjs1771933381718466958 0
 82/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/fs/lib/index.js1771933381540465531 0
 86/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/fs/lib/index.js.map1771933381569465763 0
-94/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-latin-400-normal.da1a9100.woff21772725023665652820 0
+94/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-latin-400-normal.da1a9100.woff21772788371335114968 0
 73/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/fs/lib1771933381570465771 1
 74/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/fs/test1771933381558465675 1
 77/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/logger/src1771933381510465290 1
@@ -659,6 +651,7 @@
 88/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/feature-flags/LICENSE1771933381495465170 0
 93/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/feature-flags/lib/index.js1771933381513465314 0
 107/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/feature-flags/test/feature-flags.test.js1771933381506465258 0
+70/home/nomercy17/Documents/udemy_js/18-forkify/dist/project.be90876d.js1772788371341114974 0
 85/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/feature-flags/test1771933381501465218 1
 112/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/transformer-postcss/src/PostCSSTransformer.js1771933381548465595 0
 103/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/transformer-postcss/src/constants.js1771933381512465306 0
@@ -810,6 +803,7 @@
 102/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/core/test/fixtures/parcel/yarn.lock1771933381704466846 0
 101/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/core/test/fixtures/parcel/index.js1771933381624466204 0
 101/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/core/test/fixtures/parcel/other.js1771933381637466308 0
+83/home/nomercy17/Documents/udemy_js/18-forkify/project/src/js/views/bookmarksView.js1772716516169875291 0
 92/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/core/test/fixtures/parcel1771933381704466846 1
 114/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/core/test/fixtures/invalid-engines/package.json1771933381694466766 0
 101/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/core/test/fixtures/invalid-engines1771933381693466758 1
@@ -890,6 +884,7 @@
 86/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/reporter-dev-server1771933381584465884 1
 89/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/optimizer-html/LICENSE1771933381495465170 0
 102/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/optimizer-html/lib/HTMLOptimizer.js1771933381507465266 0
+75/home/nomercy17/Documents/udemy_js/18-forkify/dist/project.27a8e375.css.map1772788371344114978 0
 125/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/rust-linux-x64-gnu/parcel-node-bindings.linux-x64-gnu.node1771933381809467688 0
 115/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/_/_check_private_redeclaration/package.json1771933381676466621 0
 109/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers1771933381505465250 1
@@ -1176,7 +1171,6 @@
 68/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/picomatch1771933381544465563 1
 69/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/color-name1771933381503465234 1
 83/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/supports-color/readme.md1771933381511465298 0
-69/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/js/model.js1772722993145939466 0
 81/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/supports-color/license1771933381495465170 0
 82/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/supports-color/index.js1771933381503465234 0
 84/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/supports-color/browser.js1771933381496465178 0
@@ -1211,7 +1205,6 @@
 101/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@fontsource/nunito-sans/vietnamese-900.css1771934418173071178 0
 110/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@fontsource/nunito-sans/cyrillic-ext-200-italic.css1771934418167071127 0
 106/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@fontsource/nunito-sans/cyrillic-500-italic.css1771934418166071119 0
-70/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/js/config.js1772721598302459875 0
 101/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@fontsource/nunito-sans/vietnamese-500.css1771934418172071169 0
 106/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/cjs/_class_private_method_init.cjs1771933381583465875 0
 95/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@fontsource/nunito-sans/unicode.json1771934418173071178 0
@@ -1289,7 +1282,7 @@
 130/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@fontsource/nunito-sans/files/nunito-sans-cyrillic-ext-600-normal.woff21771934418237071719 0
 122/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@fontsource/nunito-sans/files/nunito-sans-latin-800-italic.woff1771934418206071457 0
 122/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@fontsource/nunito-sans/files/nunito-sans-latin-700-italic.woff1771934418205071448 0
-68/home/nomercy17/Documents/udemy_js/18-forkify/dist/logo.0240107d.png1772725023668652842 0
+68/home/nomercy17/Documents/udemy_js/18-forkify/dist/logo.0240107d.png1772788371336114969 0
 123/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@fontsource/nunito-sans/files/nunito-sans-latin-200-italic.woff21771934418239071735 0
 125/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@fontsource/nunito-sans/files/nunito-sans-cyrillic-300-normal.woff1771934418177071212 0
 129/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@fontsource/nunito-sans/files/nunito-sans-cyrillic-ext-900-normal.woff1771934418187071296 0
@@ -1332,6 +1325,7 @@
 100/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/types-internal/src/PackageName.js1771933381555465651 0
 127/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@fontsource/nunito-sans/files/nunito-sans-vietnamese-200-italic.woff1771934418218071558 0
 123/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@fontsource/nunito-sans/files/nunito-sans-latin-400-italic.woff21771934418240071744 0
+75/home/nomercy17/Documents/udemy_js/18-forkify/project/src/sass/_recipe.scss1769334458413573778 0
 130/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@fontsource/nunito-sans/files/nunito-sans-cyrillic-ext-200-normal.woff21771934418236071710 0
 129/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@fontsource/nunito-sans/files/nunito-sans-cyrillic-ext-800-italic.woff1771934418186071288 0
 126/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@fontsource/nunito-sans/files/nunito-sans-latin-ext-800-italic.woff1771934418217071550 0
@@ -1544,8 +1538,10 @@
 93/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/stable/set/intersection.js1771943606870342084 0
 86/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/stable/set/index.js1771943606861341998 0
 86/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/stable/set/union.js1771943607138344656 0
+55/home/nomercy17/Documents/udemy_js/18-forkify/README.md1772726201387351806 0
 101/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/src/_class_name_tdz_error.mjs1771933381714466926 0
 97/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/stable/set/is-disjoint-from.js1771943606875342132 0
+79/home/nomercy17/Documents/udemy_js/18-forkify/project/src/sass/_components.scss1769334458413573778 0
 91/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/stable/error/is-error.js1771943606876342142 0
 77/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/stable/set1771943607138344656 1
 93/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/stable/structured-clone.js1771943607080344100 0
@@ -1681,6 +1677,7 @@
 97/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/typed-array/uint32-array.js1771943607135344627 0
 91/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.array.with.js1771943606610339589 0
 94/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/typed-array/find-last.js1771943606734340779 0
+72/home/nomercy17/Documents/udemy_js/18-forkify/project/src/sass/main.scss1771934488905669029 0
 91/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/msgpackr/dist/unpack-no-eval.cjs1771933381547465587 0
 101/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.object.lookup-setter.js1771943606628339762 0
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/typed-array/every.js1771943606705340501 0
@@ -1864,6 +1861,7 @@
 95/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/types-internal/src/unsafe.js1771933381559465683 0
 98/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.array.to-reversed.js1771943606609339580 0
 114/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/proposals/async-explicit-resource-management.js1771943606491338447 0
+80/home/nomercy17/Documents/udemy_js/18-forkify/project/src/js/views/searchView.js1772196858943365638 0
 88/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/proposals/is-error.js1771943606876342142 0
 88/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/actual/math/fround.js1771943606775341173 0
 82/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/picocolors/package.json1771933381507465266 0
@@ -1902,7 +1900,6 @@
 107/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/lmdb/dependencies/lmdb/libraries/liblmdb/mtest.c1771933381645466373 0
 86/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/events/lib/types.js1771933381544465563 0
 98/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/proposals/decorator-metadata.js1771943606555339061 0
-80/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/js/views/searchView.js1772196858943365638 0
 98/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/proposals/number-from-string.js1771943606959342938 0
 106/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/resolver-default/src/DefaultResolver.js1771933381513465314 0
 89/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/web/dom-collections.js1771943606576339263 0
@@ -2204,6 +2201,7 @@
 97/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/date/to-iso-string.js1771943607099344282 0
 95/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/actual/typed-array/filter.js1771943606722340664 0
 97/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/actual/typed-array/subarray.js1771943607082344119 0
+82/home/nomercy17/Documents/udemy_js/18-forkify/project/forkify-flowchart-part-3.png1769334458412573775 0
 106/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@fontsource/nunito-sans/cyrillic-700-italic.css1771934418166071119 0
 79/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/semver/bin/semver.js1771933381588465915 0
 96/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/internals/array-set-length.js1771943606486338399 0
@@ -2266,6 +2264,7 @@
 104/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/media-fragments.js1771933381788467520 0
 100/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/core/test/fixtures/common-targets1771933381687466709 1
 101/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/actual/array/virtual/to-spliced.js1771943607111344397 0
+60/home/nomercy17/Documents/udemy_js/18-forkify/project/src/js1772030619516109212 1
 99/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/actual/array/virtual/index-of.js1771943606822341624 0
 93/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/object/entries.js1771943606590339397 0
 98/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/stable/typed-array/find-last.js1771943606736340799 0
@@ -2534,7 +2533,6 @@
 114/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/_/_initializer_warning_helper/package.json1771933381694466766 0
 127/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@fontsource/nunito-sans/files/nunito-sans-vietnamese-400-normal.woff1771934418219071566 0
 98/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/internals/is-data-descriptor.js1771943606875342132 0
-70/home/nomercy17/Documents/udemy_js/18-forkify/dist/starter.6a102e84.js1772725023673652879 0
 68/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/core1771933381546465579 1
 98/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/actual/typed-array/to-sorted.js1771943607108344368 0
 104/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/actual/array/virtual/last-index-of.js1771943606923342593 0
@@ -2903,7 +2901,6 @@
 95/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/actual/symbol/description.js1771943606568339186 0
 88/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/actual/url/to-json.js1771943607100344291 0
 88/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/full/array/unshift.js1771943607141344685 0
-82/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/sass/_searchResults.scss1769334458413573778 0
 95/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/webhid.js1771933381835467896 0
 95/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/tls1-2.js1771933381825467816 0
 109/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/input-file-directory.js1771933381768467359 0
@@ -3006,7 +3003,7 @@
 105/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/_/_class_private_field_loose_base1771933381681466661 1
 76/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/.bin/browserslist1771933381847467993 0
 116/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/array-buffer/transfer-to-fixed-length.js1771943607122344503 0
-98/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-vietnamese-600-normal.2b81dc56.woff1772725023482651458 0
+98/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-vietnamese-600-normal.2b81dc56.woff1772788371150114779 0
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/regions/CX.js1771933381727467030 0
 96/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/actual/instance/trim-start.js1771943607128344560 0
 82/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/escalade/dist/index.mjs1771933381526465418 0
@@ -3179,7 +3176,6 @@
 95/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.array.flat-map.js1771943606605339541 0
 91/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/utils/src/http-server.js1771933381583465875 0
 82/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/semver/functions/inc.js1771933381562465707 0
-73/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/img/favicon.png1769334458412573775 0
 101/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/actual/array/virtual/find-index.js1771943606726340702 0
 77/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/plugin/lib1771933381498465194 1
 87/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/stable/array/push.js1771943606992343255 0
@@ -3242,7 +3238,6 @@
 72/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/clone/LICENSE1771933381508465274 0
 91/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/resolver-default/LICENSE1771933381495465170 0
 94/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/regions/alt-as.js1771933381579465844 0
-73/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/sass/_base.scss1769334458413573778 0
 99/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/actual/array/virtual/includes.js1771943606818341585 0
 79/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/chalk/source/util.js1771933381525465410 0
 74/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/semver/internal1771933381586465899 1
@@ -3262,7 +3257,7 @@
 108/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/http-live-streaming.js1771933381760467295 0
 87/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/sass/types/value/number.d.ts1771933448094001295 0
 81/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/color-convert/route.js1771933381524465402 0
-58/home/nomercy17/Documents/udemy_js/18-forkify/package.json1772724992333420066 0
+58/home/nomercy17/Documents/udemy_js/18-forkify/package.json1772746333861486639 0
 105/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/actual/async-iterator/async-dispose.js1771943606489338428 0
 93/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/msgpackr-extract/node_modules/.bin1771933381847467993 1
 99/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/baseline-browser-mapping/dist/index.d.ts1771933381552465627 0
@@ -3329,6 +3324,7 @@
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/regions/BI.js1771933381623466196 0
 82/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/node-addon-api/index.js1771933381561465699 0
 98/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/proposals/collection-of-from.js1771943606533338850 0
+70/home/nomercy17/Documents/udemy_js/18-forkify/project/src/img/logo.png1769334458412573775 0
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/regions/IN.js1771933381763467319 0
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/regions/KM.js1771933381779467447 0
 84/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/node-addon-api/LICENSE.md1771933381562465707 0
@@ -3345,6 +3341,7 @@
 97/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/transformer-image/package.json1771933381542465547 0
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/regions/ID.js1771933381761467303 0
 88/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/full/string/cooked.js1771943606547338985 0
+71/home/nomercy17/Documents/udemy_js/18-forkify/project/src/img/icons.svg1769334458412573775 0
 76/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/tslib/LICENSE.txt1771933381548465595 0
 99/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/stable/function/virtual/index.js1771943606858341969 0
 91/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/ordered-binary/.idea/modules.xml1771933381553465635 0
@@ -3393,7 +3390,7 @@
 83/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/math/atanh.js1771943606502338553 0
 78/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/parcel/package.json1771933381542465547 0
 99/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/full/string/virtual/ends-with.js1771943606588339378 0
-96/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-cyrillic-700-normal.7146d9c6.woff1772725023482651458 0
+96/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-cyrillic-700-normal.7146d9c6.woff1772788371150114779 0
 101/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/string/virtual/code-point-at.js1771943606528338802 0
 86/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/sass/types/value/index.d.ts1771933448092001279 0
 98/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/proposals/regexp-dotall-flag.js1771943607008343409 0
@@ -3409,6 +3406,7 @@
 94/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/proposals/array-includes.js1771943606484338380 0
 89/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.unescape.js1771943606654340012 0
 81/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/term-size/package.json1771933381546465579 0
+74/home/nomercy17/Documents/udemy_js/18-forkify/project/src/js/controller.js1772722070575817696 0
 100/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/string/to-well-formed.js1771943607121344493 0
 82/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/nullthrows/package.json1771933381495465170 0
 107/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/electron-to-chromium/full-chromium-versions.json1771933381540465531 0
@@ -3424,7 +3422,7 @@
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/internals/math-log10.js1771943606950342852 0
 87/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/type-fest/source/except.d.ts1771933381556465659 0
 89/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/stable/get-iterator.js1771943606788341297 0
-94/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-latin-600-normal.c31b556d.woff21772725023667652835 0
+94/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-latin-600-normal.c31b556d.woff21772788371335114968 0
 87/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/array/is-array.js1771943606870342084 0
 77/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/nullthrows/LICENSE1771933381498465194 0
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/regions/TH.js1771933381824467808 0
@@ -3462,6 +3460,7 @@
 85/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/full/map/reduce.js1771943607006343389 0
 89/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/type-fest/ts41/snake-case.d.ts1771933381585465891 0
 94/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.regexp.escape.js1771943606634339820 0
+70/home/nomercy17/Documents/udemy_js/18-forkify/project/src/js/config.js1772788081643295016 0
 71/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/counter1771933381504465242 1
 80/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/source-map-js/LICENSE1771933447981000382 0
 126/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/msgpackr-extract/node_modules/.bin/node-gyp-build-optional-packages1771933381847467993 0
@@ -3549,7 +3548,7 @@
 106/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/web.dom-collections.iterator.js1771943607147344742 0
 79/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/json5/lib/unicode.js1771933381554465643 0
 80/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/sass/types/index.d.ts1771933448092001279 0
-69/home/nomercy17/Documents/udemy_js/18-forkify/dist/icons.c5b0f01c.svg1772725023673652879 0
+69/home/nomercy17/Documents/udemy_js/18-forkify/dist/icons.c5b0f01c.svg1772788371341114974 0
 94/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/lmdb/dependencies/lz4/lib/lz4file.h1771933381679466645 0
 101/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/internals/regexp-sticky-helpers.js1771943607008343409 0
 94/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/webgl.js1771933381834467888 0
@@ -3589,7 +3588,6 @@
 103/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/actual/string/virtual/replace-all.js1771943607012343447 0
 118/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/msgpackr-extract/node_modules/detect-libc/lib/filesystem.js1771933381531465458 0
 92/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/iterator/take.js1771943607092344215 0
-64/home/nomercy17/Documents/udemy_js/18-forkify/starter/index.html1772720910296189725 0
 86/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/utils/src/config.js1771933381554465643 0
 81/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@lezer/lr/package.json1771933381545465571 0
 84/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/optimizer-svg/lib1771933381501465218 1
@@ -3616,7 +3614,7 @@
 103/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/internals/v8-prototype-define-bug.js1771943607143344704 0
 84/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/core/src/utils.js1771933381678466637 0
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/internals/a-callable.js1771943606463338179 0
-97/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-cyrillic-700-normal.c721da49.woff21772725023667652835 0
+97/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-cyrillic-700-normal.c721da49.woff21772788371335114968 0
 67/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/escalade1771933381538465514 1
 108/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/source-map/parcel_sourcemap_node/build.js1771933381546465579 0
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/regions/GP.js1771933381757467271 0
@@ -3677,6 +3675,7 @@
 109/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/css-display-contents.js1771933381688466717 0
 128/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/msgpackr-extract/node_modules/node-gyp-build-optional-packages/bin.js1771933381502465226 0
 74/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/globals/license1771933381495465170 0
+81/home/nomercy17/Documents/udemy_js/18-forkify/project/src/js/views/previewView.js1772722815864094062 0
 84/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/utils/src/svgo.js1771933381619466164 0
 101/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/css-any-link.js1771933381671466581 0
 101/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/esnext.composite-symbol.js1771943606663340098 0
@@ -3717,6 +3716,7 @@
 94/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/regions/alt-sa.js1771933381585465891 0
 94/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/actual/string/trim-right.js1771943607126344541 0
 102/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/link-icon-svg.js1771933381781467463 0
+71/home/nomercy17/Documents/udemy_js/18-forkify/dist/project.27a8e375.css1772788371341114974 0
 91/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/full/set/intersection.js1771943606870342084 0
 97/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/web.queue-microtask.js1771943607147344742 0
 97/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/core/test/fixtures/main-global1771933381699466806 1
@@ -3771,6 +3771,7 @@
 99/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/function/demethodize.js1771943606567339177 0
 108/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/css-conic-gradients.js1771933381679466645 0
 99/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/array/virtual/filter.js1771943606723340674 0
+83/home/nomercy17/Documents/udemy_js/18-forkify/project/src/js/views/addRecipeView.js1772746421341599360 0
 100/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/wbr-element.js1771933381833467880 0
 93/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/symbol/matcher.js1771943606948342833 0
 102/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@lmdb/lmdb-linux-x64/node.abi115.glibc.node1771933381580465851 0
@@ -3954,10 +3955,11 @@
 99/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/css-canvas.js1771933381676466621 0
 67/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/lmdb/bin1771933381689466726 1
 91/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/actual/iterator/index.js1771943606830341701 0
-94/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-latin-700-normal.43120988.woff21772725023667652835 0
+94/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-latin-700-normal.43120988.woff21772788371335114968 0
 83/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/string/sup.js1771943607085344147 0
+73/home/nomercy17/Documents/udemy_js/18-forkify/project/src/img/favicon.png1769334458412573775 0
 103/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/stable/reflect/prevent-extensions.js1771943606989343226 0
-101/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-cyrillic-ext-600-normal.d9788e95.woff21772725023665652820 0
+101/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-cyrillic-ext-600-normal.d9788e95.woff21772788371335114968 0
 91/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/actual/array/iterator.js1771943606898342353 0
 112/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/background-position-x-y.js1771933381616466140 0
 95/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/tls1-3.js1771933381825467816 0
@@ -4103,7 +4105,7 @@
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.data-view.js1771943606611339599 0
 89/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/full/iterator/index.js1771943606850341893 0
 98/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/typed-array/entries.js1771943606591339407 0
-96/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-cyrillic-400-normal.a76a1ec3.woff1772725023481651451 0
+96/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-cyrillic-400-normal.a76a1ec3.woff1772788371150114779 0
 102/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/proposals/array-grouping-stage-3.js1771943606484338380 0
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/regions/SL.js1771933381815467736 0
 136/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/core/test/fixtures/plugins/node_modules/parcel-transformer-no-engines1771933381702466830 1
@@ -4275,7 +4277,6 @@
 91/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/fraction.js/dist/fraction.min.js1771949112306857080 0
 86/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/semver/ranges/intersects.js1771933381565465731 0
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/regions/SH.js1771933381814467728 0
-65/home/nomercy17/Documents/udemy_js/18-forkify/starter/.prettierrc1769334458404573753 0
 92/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/eme.js1771933381746467182 0
 110/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/core/test/fixtures/config-extends-not-found1771933381568465755 1
 99/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/utility-types/dist/aliases-and-guards.js1771933381504465242 0
@@ -4387,6 +4388,7 @@
 108/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.symbol.is-concat-spreadable.js1771943606643339906 0
 81/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/array/at.js1771943606496338495 0
 82/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/browserslist/browser.js1771933381498465194 0
+82/home/nomercy17/Documents/udemy_js/18-forkify/project/src/sass/_searchResults.scss1769334458413573778 0
 96/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/cjs/_super_prop_base.cjs1771933381612466108 0
 83/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/math/asinh.js1771943606487338409 0
 99/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/es6-number.js1771933381748467199 0
@@ -4516,7 +4518,6 @@
 105/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/esnext.set.is-disjoint-from.js1771943606692340376 0
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/regions/MU.js1771933381796467583 0
 92/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/async-disposable-stack1771943606833341729 1
-82/home/nomercy17/Documents/udemy_js/18-forkify/starter/forkify-flowchart-part-3.png1769334458412573775 0
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/regions/PT.js1771933381808467680 0
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/regions/KZ.js1771933381780467455 0
 89/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/core/lib/Dependency.js1771933381613466116 0
@@ -4546,7 +4547,7 @@
 80/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/full/iterator1771943607157344838 1
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/regions/PG.js1771933381804467648 0
 93/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/wasm.js1771933381833467880 0
-100/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-cyrillic-ext-700-normal.e4eebdaa.woff1772725023482651458 0
+100/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-cyrillic-ext-700-normal.e4eebdaa.woff1772788371150114779 0
 72/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/picomatch/lib1771933381542465547 1
 119/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/keyboardevent-getmodifierstate.js1771933381777467431 0
 88/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/math/imul.js1771943606817341576 0
@@ -4754,6 +4755,7 @@
 103/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@fontsource/nunito-sans/cyrillic-ext-300.css1771934418167071127 0
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/regions/ES.js1771933381747467191 0
 104/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/arrow-functions.js1771933381598465996 0
+65/home/nomercy17/Documents/udemy_js/18-forkify/project/.prettierrc1769334458404573753 0
 95/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/dialog.js1771933381738467119 0
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/regions/TM.js1771933381825467816 0
 89/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/typed-array/fill.js1771943606713340578 0
@@ -4769,7 +4771,7 @@
 77/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/lmdb/node-index.js1771933381690466733 0
 101/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.iterator.constructor.js1771943606615339637 0
 88/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.promise.js1771943606631339791 0
-45/home/nomercy17/Documents/udemy_js/18-forkify1772725023464651324 1
+45/home/nomercy17/Documents/udemy_js/18-forkify1772788371134114763 1
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/regions/NU.js1771933381800467615 0
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/full/array/find-last.js1771943606735340789 0
 93/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/zstd.js1771933381838467921 0
@@ -4946,6 +4948,7 @@
 88/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/lightningcss/node/ast.js.flow1771933381537465506 0
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.math.imul.js1771943606621339695 0
 75/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/parcel/README.md1771933381544465563 0
+74/home/nomercy17/Documents/udemy_js/18-forkify/dist/project.be90876d.js.map1772788371344114978 0
 79/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/full/atob.js1771943606503338562 0
 111/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/form-submit-attributes.js1771933381754467247 0
 106/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/input-placeholder.js1771933381769467367 0
@@ -5063,7 +5066,7 @@
 99/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/type-fest/source/fixed-length-array.d.ts1771933381559465683 0
 103/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/actual/array/virtual/reduce-right.js1771943606999343322 0
 108/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.typed-array.find-last-index.js1771943606646339935 0
-98/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-vietnamese-700-normal.07294d70.woff1772725023482651458 0
+98/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-vietnamese-700-normal.07294d70.woff1772788371150114779 0
 128/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@fontsource/nunito-sans/files/nunito-sans-vietnamese-500-italic.woff21771934418257071887 0
 95/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/ordered-binary/assets/powers-dre.png1771933381548465595 0
 116/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/url-scroll-to-text-fragment.js1771933381827467832 0
@@ -5314,6 +5317,7 @@
 86/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/instance/keys.js1771943606920342564 0
 88/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/instance/concat.js1771943606536338879 0
 94/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/instance/reduce-right.js1771943607000343332 0
+75/home/nomercy17/Documents/udemy_js/18-forkify/dist/project.2753df32.css.map1772788371344114978 0
 106/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/proposals/iterator-helpers-stage-3-2.js1771943606897342344 0
 88/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/instance/filter.js1771943606723340674 0
 93/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/instance/replace-all.js1771943607012343447 0
@@ -5422,6 +5426,7 @@
 97/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/object/define-properties.js1771943606559339100 0
 104/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/object/get-own-property-symbols.js1771943606799341403 0
 84/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/object/seal.js1771943607019343514 0
+73/home/nomercy17/Documents/udemy_js/18-forkify/project/src/sass/_base.scss1769334458413573778 0
 86/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/object/create.js1771943606553339043 0
 95/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/observable/index.js1771943606844341835 0
 96/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/object/get-prototype-of.js1771943606800341413 0
@@ -5435,6 +5440,7 @@
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/regions/GL.js1771933381756467263 0
 95/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.array.for-each.js1771943606606339551 0
 86/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/object/values.js1771943607144344714 0
+76/home/nomercy17/Documents/udemy_js/18-forkify/project/src/sass/_preview.scss1769334458413573778 0
 85/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/stable/date/now.js1771943606959342938 0
 97/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/actual/symbol/async-dispose.js1771943606490338438 0
 108/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/object/get-own-property-descriptors.js1771943606797341384 0
@@ -5702,7 +5708,7 @@
 98/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/full/array/virtual/unique-by.js1771943607139344666 0
 107/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/_/_to_consumable_array/package.json1771933381705466854 0
 96/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/internals/define-built-ins.js1771943606557339081 0
-97/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-cyrillic-600-normal.00e24ef8.woff21772725023666652828 0
+97/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-cyrillic-600-normal.00e24ef8.woff21772788371335114968 0
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/watcher-linux-x64-glibc1771933381504465242 1
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/weak-map/of.js1771943606968343025 0
 97/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/stable/object/lookup-getter.js1771943606934342699 0
@@ -5739,7 +5745,7 @@
 89/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/full/array/index-of.js1771943606825341653 0
 87/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/full/array/filter.js1771943606724340683 0
 94/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/full/object/from-entries.js1771943606770341125 0
-97/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-latin-ext-600-normal.63e587c4.woff1772725023482651458 0
+97/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-latin-ext-600-normal.63e587c4.woff1772788371150114779 0
 86/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/full/array/slice.js1771943607044343754 0
 93/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/esnext.set.find.js1771943606692340376 0
 101/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/typed-array/to-spliced.js1771943607112344407 0
@@ -5761,7 +5767,6 @@
 85/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/full/array/some.js1771943607050343812 0
 93/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/internals/function-call.js1771943606778341202 0
 94/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/full/array/filter-reject.js1771943606717340616 0
-74/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/js/controller.js1772722070575817696 0
 83/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/array/find.js1771943606737340808 0
 99/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/actual/number/is-safe-integer.js1771943606885342229 0
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/full/array/unique-by.js1771943607139344666 0
@@ -5803,7 +5808,7 @@
 97/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/full/typed-array/to-spliced.js1771943607112344407 0
 93/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/stable/string/match-all.js1771943606945342804 0
 89/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/full/typed-array/of.js1771943606970343044 0
-97/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-latin-ext-400-normal.8d3fc287.woff1772725023482651458 0
+97/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-latin-ext-400-normal.8d3fc287.woff1772788371150114779 0
 103/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/full/typed-array/to-locale-string.js1771943607101344301 0
 99/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/es/reflect/prevent-extensions.js1771943606988343217 0
 95/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/stable/string/virtual/sup.js1771943607086344157 0
@@ -6012,7 +6017,6 @@
 87/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/full/symbol/match.js1771943606948342833 0
 84/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/reporter-cli/test1771933381553465635 1
 96/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/full/symbol/custom-matcher.js1771943606554339052 0
-70/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/img/logo.png1769334458412573775 0
 93/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/set/delete-all.js1771943606564339148 0
 103/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/watcher/node_modules/detect-libc/lib1771933381534465482 1
 94/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/data-view/index.js1771943606842341816 0
@@ -6291,7 +6295,7 @@
 108/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/esnext.uint8-array.from-base64.js1771943606699340443 0
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/regions/AM.js1771933381588465915 0
 93/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.iterator.map.js1771943606616339647 0
-97/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-latin-ext-700-normal.2fdf1c23.woff1772725023482651458 0
+97/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-latin-ext-700-normal.2fdf1c23.woff1772788371150114779 0
 96/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.number.to-fixed.js1771943606623339714 0
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/core/lib/projectPath.js1771933381653466437 0
 97/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.typed-array.with.js1771943606652339992 0
@@ -6397,7 +6401,7 @@
 97/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.regexp.to-string.js1771943606635339829 0
 97/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.number.is-finite.js1771943606622339704 0
 97/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.typed-array.from.js1771943606647339944 0
-99/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-vietnamese-600-normal.5ac3edc3.woff21772725023667652835 0
+99/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-vietnamese-600-normal.5ac3edc3.woff21772788371335114968 0
 89/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/lmdb/bin/download-prebuilds.js1771933381689466726 0
 95/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/function/un-this.js1771943607136344637 0
 111/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/stable/async-disposable-stack/constructor.js1771943606546338975 0
@@ -6434,7 +6438,6 @@
 87/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/stable/dom-exception1771943607116344445 1
 109/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/web.dom-exception.to-string-tag.js1771943607147344742 0
 102/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/esnext.set.difference.v2.js1771943606691340367 0
-66/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/js/views1772716969574852216 1
 105/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/core/src/registerCoreWithSerializer.js1771933381657466469 0
 89/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/math/imulh.js1771943606817341576 0
 87/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@lezer/common/dist/index.cjs1771933381521465378 0
@@ -6495,7 +6498,6 @@
 94/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/clear-immediate.js1771943606526338783 0
 112/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.object.get-own-property-symbols.js1771943606626339743 0
 100/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/esnext.iterator.concat.js1771943606669340155 0
-75/home/nomercy17/Documents/udemy_js/18-forkify/dist/starter.5e022ed2.css.map1772725023676652902 0
 102/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/typed-array/to-reversed.js1771943607106344349 0
 108/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.uint8-array.set-from-base64.js1771943606654340012 0
 85/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/diagnostic/LICENSE1771933381495465170 0
@@ -6538,7 +6540,6 @@
 104/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.set.is-disjoint-from.v2.js1771943606636339839 0
 98/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/esnext.iterator.from.js1771943606670340165 0
 100/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/stable/typed-array/to-reversed.js1771943607107344359 0
-60/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/js1772030619516109212 1
 95/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/actual/string/replace-all.js1771943607012343447 0
 109/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/esnext.reflect.has-own-metadata.js1771943606691340367 0
 83/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/watcher/src/wasm1771933381592465948 1
@@ -6654,7 +6655,6 @@
 95/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.array.index-of.js1771943606606339551 0
 112/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/esnext.data-view.get-uint8-clamped.js1771943606663340098 0
 93/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/esnext.map.find.js1771943606673340194 0
-82/home/nomercy17/Documents/udemy_js/18-forkify/starter/forkify-flowchart-part-1.png1769334458407573761 0
 95/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.string.italics.js1771943606638339858 0
 91/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/stable/string/italics.js1771943606894342315 0
 105/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/esnext.reflect.has-metadata.js1771943606690340357 0
@@ -6797,8 +6797,6 @@
 100/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/esnext.array.to-sorted.js1771943606659340060 0
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/actual/function/virtual1771943606829341691 1
 95/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/esnext.map.reduce.js1771943606676340223 0
-84/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/js/views/paginationView.js1772204612890454524 0
-81/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/js/views/previewView.js1772722815864094062 0
 83/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/msgpackr-extract/LICENSE1771933381495465170 0
 99/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/modules/es.string.starts-with.js1771943606640339877 0
 122/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@fontsource/nunito-sans/files/nunito-sans-latin-200-normal.woff1771934418195071364 0
@@ -7055,6 +7053,7 @@
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/regions/PN.js1771933381805467656 0
 97/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/string/virtual/big.js1771943606505338582 0
 89/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/internals/is-symbol.js1771943606888342257 0
+69/home/nomercy17/Documents/udemy_js/18-forkify/project/src/js/model.js1772787939366299944 0
 76/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/term-size/license1771933381518465354 0
 77/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/full/array1771943607154344810 1
 98/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/async-iterator/take.js1771943607092344215 0
@@ -7147,7 +7146,7 @@
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/internals/get-method.js1771943606789341307 0
 79/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/nullthrows/README.md1771933381516465338 0
 101/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/internals/array-buffer-transfer.js1771943606478338322 0
-100/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-cyrillic-ext-600-normal.3a495ed9.woff1772725023482651458 0
+100/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-cyrillic-ext-600-normal.3a495ed9.woff1772788371150114779 0
 96/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/string/trim-start.js1771943607129344570 0
 88/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/chrome-trace-event/CHANGES.md1771933381508465274 0
 75/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features1771943607137344646 1
@@ -7454,6 +7453,7 @@
 92/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/promise/index.js1771943606844341835 0
 102/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/caniuse-lite/data/features/console-basic.js1771933381659466485 0
 94/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/promise/finally.js1771943606726340702 0
+75/home/nomercy17/Documents/udemy_js/18-forkify/project/src/sass/_upload.scss1769334458413573778 0
 91/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/date/to-json.js1771943607100344291 0
 96/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/date/to-primitive.js1771943607103344320 0
 93/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/date/to-string.js1771943607118344464 0
@@ -7563,7 +7563,7 @@
 102/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/number/min-safe-integer.js1771943606955342900 0
 103/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/_/_sliced_to_array/package.json1771933381704466846 0
 102/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/number/max-safe-integer.js1771943606952342871 0
-101/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-cyrillic-ext-700-normal.ad8e3b06.woff21772725023667652835 0
+101/home/nomercy17/Documents/udemy_js/18-forkify/dist/nunito-sans-cyrillic-ext-700-normal.ad8e3b06.woff21772788371335114968 0
 95/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/number/is-finite.js1771943606879342171 0
 97/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/number/constructor.js1771943606543338946 0
 90/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/is-iterable.js1771943606882342200 0
@@ -7571,7 +7571,6 @@
 98/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@swc/helpers/_/_interop_require_default1771933381695466773 1
 86/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/@parcel/runtime-browser-hmr1771933381546465579 1
 89/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/json/index.js1771943606843341825 0
-76/home/nomercy17/Documents/udemy_js/18-forkify/starter/src/sass/_preview.scss1769334458413573778 0
 100/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/actual/object/get-prototype-of.js1771943606800341413 0
 92/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/core-js/features/json/raw-json.js1771943606998343313 0
 82/home/nomercy17/Documents/udemy_js/18-forkify/node_modules/semver/functions/gte.js1771933381557465667 0

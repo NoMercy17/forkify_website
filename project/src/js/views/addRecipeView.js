@@ -14,6 +14,7 @@ class AddRecipeView extends View{
         super();
         this._addHandlerShowWindow(); 
         this._addHandlerHideWindow();
+        this._addHandlerIngredients();
     }   
     
     toggleWindow(){
@@ -38,6 +39,38 @@ class AddRecipeView extends View{
             const data = Object.fromEntries(dataArr); // convert to object
             console.log(data);
             handler(data);
+        });
+    }
+
+    _addHandlerIngredients(){
+        const container = document.querySelector('#ingredients-list');
+        const addBtn = document.querySelector('.upload__ingredient-add');
+
+        addBtn.addEventListener('click', () => {
+            const count = container.querySelectorAll('.upload__ingredient-row').length + 1;
+            const html = `
+                <div class="upload__ingredient-row">
+                    <input type="number" step="any" name="ingredient-${count}-quantity" placeholder="Qty" />
+                    <input type="text" name="ingredient-${count}-unit" placeholder="Unit" />
+                    <input type="text" name="ingredient-${count}-description" placeholder="Description" />
+                    <button type="button" class="upload__ingredient-delete">&times;</button>
+                </div>
+            `;
+            container.insertAdjacentHTML('beforeend', html);
+        });
+
+        // Delete ingredient row (delegated)
+        container.addEventListener('click', e => {
+            if(e.target.classList.contains('upload__ingredient-delete')){
+                e.target.closest('.upload__ingredient-row').remove();
+                // Renumber remaining rows
+                container.querySelectorAll('.upload__ingredient-row').forEach((row, i) => {
+                    const num = i + 1;
+                    row.querySelector('[name$="-quantity"]').name = `ingredient-${num}-quantity`;
+                    row.querySelector('[name$="-unit"]').name = `ingredient-${num}-unit`;
+                    row.querySelector('[name$="-description"]').name = `ingredient-${num}-description`;
+                });
+            }
         });
     }
 

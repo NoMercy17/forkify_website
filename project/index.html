@@ -116,17 +116,6 @@
             </svg>
           </button> -->
         </div>
-
-        <p class="copyright">
-          &copy; Copyright by
-          <a
-            class="twitter-link"
-            target="_blank"
-            href="https://twitter.com/jonasschmedtman"
-            >Jonas Schmedtmann</a
-          >. Use for learning or your portfolio. Don't use to teach. Don't claim
-          as your own.
-        </p>
       </div>
 
       <div class="recipe">
@@ -272,48 +261,41 @@
           <input value="23" required name="servings" type="number" />
         </div>
 
-        <div class="upload__column">
+        <div class="upload__column upload__column--ingredients">
           <h3 class="upload__heading">Ingredients</h3>
-          <label>Ingredient 1</label>
-          <input
-            value="0.5,kg,Rice"
-            type="text"
-            required
-            name="ingredient-1"
-            placeholder="Format: 'Quantity,Unit,Description'"
-          />
-          <label>Ingredient 2</label>
-          <input
-            value="1,,Avocado"
-            type="text"
-            name="ingredient-2"
-            placeholder="Format: 'Quantity,Unit,Description'"
-          />
-          <label>Ingredient 3</label>
-          <input
-            value=",,salt"
-            type="text"
-            name="ingredient-3"
-            placeholder="Format: 'Quantity,Unit,Description'"
-          />
-          <label>Ingredient 4</label>
-          <input
-            type="text"
-            name="ingredient-4"
-            placeholder="Format: 'Quantity,Unit,Description'"
-          />
-          <label>Ingredient 5</label>
-          <input
-            type="text"
-            name="ingredient-5"
-            placeholder="Format: 'Quantity,Unit,Description'"
-          />
-          <label>Ingredient 6</label>
-          <input
-            type="text"
-            name="ingredient-6"
-            placeholder="Format: 'Quantity,Unit,Description'"
-          />
+
+          <div class="upload__ingredient-header">
+            <span>Qty</span>
+            <span>Unit</span>
+            <span>Description</span>
+          </div>
+
+          <div class="upload__ingredient-list" id="ingredients-list">
+            <div class="upload__ingredient-row">
+              <input type="number" step="any" name="ingredient-1-quantity" placeholder="0.5" />
+              <input type="text" name="ingredient-1-unit" placeholder="kg" />
+              <input type="text" name="ingredient-1-description" placeholder="Rice" required />
+              <button type="button" class="upload__ingredient-delete">&times;</button>
+            </div>
+
+            <div class="upload__ingredient-row">
+              <input type="number" step="any" name="ingredient-2-quantity" placeholder="1" />
+              <input type="text" name="ingredient-2-unit" placeholder="cup" />
+              <input type="text" name="ingredient-2-description" placeholder="Avocado" />
+              <button type="button" class="upload__ingredient-delete">&times;</button>
+            </div>
+
+            <div class="upload__ingredient-row">
+              <input type="number" step="any" name="ingredient-3-quantity" placeholder="2" />
+              <input type="text" name="ingredient-3-unit" placeholder="tbsp" />
+              <input type="text" name="ingredient-3-description" placeholder="Salt" />
+              <button type="button" class="upload__ingredient-delete">&times;</button>
+            </div>
+          </div>
+
+          <button type="button" class="btn--small upload__ingredient-add">
+            <span>＋ Add Ingredient</span>
+          </button>
         </div>
 
         <button class="btn upload__btn">

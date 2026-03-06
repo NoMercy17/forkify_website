@@ -2101,17 +2101,21 @@ const state = {
     },
     bookmarks: []
 };
-const createRecipeObject = function(data) {
-    const { recipe } = data.data;
+const createRecipeObject = function(recipe) {
+    // recipe is the raw Spoonacular recipe object
     return {
-        id: recipe.id,
+        id: String(recipe.id),
         title: recipe.title,
-        publisher: recipe.publisher,
-        sourceUrl: recipe.source_url,
-        image: recipe.image_url,
+        publisher: recipe.sourceName || recipe.creditsText || 'Unknown',
+        sourceUrl: recipe.sourceUrl,
+        image: recipe.image,
         servings: recipe.servings,
-        cookingTime: recipe.cooking_time,
-        ingredients: recipe.ingredients,
+        cookingTime: recipe.readyInMinutes,
+        ingredients: (recipe.extendedIngredients || []).map((ing)=>({
+                quantity: ing.amount ?? null,
+                unit: ing.unit,
+                description: ing.name
+            })),
         ...recipe.key && {
             key: recipe.key
         }
@@ -2119,38 +2123,39 @@ const createRecipeObject = function(data) {
 };
 const loadRecipe = async function(id) {
     try {
-        const data = await (0, _helpersJs.AJAX)(`${(0, _configJs.API_URL)}${id}?key=${state.KEY}`);
-        state.recipe = createRecipeObject(data);
-        if (state.bookmarks.some((bookmark)=>bookmark.id === state.recipe.id)) state.recipe.bookmarked = true;
-        else state.recipe.bookmarked = false;
-        // Renderring the recipe
+        // Check if this is a user-uploaded recipe stored in localStorage
+        const userRecipe = state.bookmarks.find((b)=>b.id === id && b.key);
+        if (userRecipe) state.recipe = userRecipe;
+        else {
+            const data = await (0, _helpersJs.AJAX)(`${(0, _configJs.API_URL)}${id}/information?apiKey=${(0, _configJs.KEY)}`);
+            state.recipe = createRecipeObject(data);
+        }
+        state.recipe.bookmarked = state.bookmarks.some((bookmark)=>bookmark.id === state.recipe.id);
         console.log(state.recipe);
     } catch (err) {
-        console.error(err + "ours");
+        console.error(err + 'ours');
         throw err; // throw error to propagate, to controller
     }
 };
 const loadSearchResults = async function(query) {
     try {
         state.search.query = query;
-        // load recipes including ours wtih &key...
-        const data = await (0, _helpersJs.AJAX)(`${(0, _configJs.API_URL)}?search=${query}&key=${state.KEY}`);
-        const { recipes } = data.data;
-        state.search.results = recipes.map((rec)=>{
-            return {
-                id: rec.id,
-                title: rec.title,
-                publisher: rec.publisher,
-                sourceUrl: rec.source_url,
-                image: rec.image_url,
-                ...rec.key && {
-                    key: rec.key
-                }
-            };
-        });
+        // Spoonacular complexSearch with full recipe info included
+        const data = await (0, _helpersJs.AJAX)(`${(0, _configJs.API_URL)}complexSearch?query=${query}&apiKey=${(0, _configJs.KEY)}&addRecipeInformation=true&number=50`);
+        // Merge API results with any locally stored user recipes that match the query
+        const localMatches = state.bookmarks.filter((b)=>b.key && b.title.toLowerCase().includes(query.toLowerCase()));
+        state.search.results = [
+            ...localMatches,
+            ...data.results.map((rec)=>({
+                    id: String(rec.id),
+                    title: rec.title,
+                    publisher: rec.sourceName || rec.creditsText || 'Unknown',
+                    image: rec.image
+                }))
+        ];
         state.search.page = 1; // reset page to 1 when new search is made
     } catch (err) {
-        console.log(err + "search");
+        console.log(err + 'search');
         throw err;
     }
 };
@@ -2186,37 +2191,32 @@ const init = function() {
     if (storage) state.bookmarks = JSON.parse(storage);
 };
 init();
-// for development only
-const clearBookmarks = function() {
-    localStorage.clear('bookmarks');
-};
 const uploadRecipe = async function(newRecipe) {
     try {
-        console.log(Object.entries(newRecipe));
-        const ingredients = Object.entries(newRecipe).filter((entry)=>entry[0].startsWith('ingredient') && entry[1] !== '').map((ing)=>{
-            const ingArr = ing[1].split(',').map((el)=>el.trim());
-            if (ingArr.length !== 3) throw new Error('Wrong ingredient format! Please use the correct format!!');
-            const [quantity, unit, description] = ingArr;
-            return {
-                quantity: quantity ? +quantity : null,
-                unit,
-                description
-            };
-        });
+        // Collect ingredient rows from separate fields
+        const ingredientNums = new Set(Object.keys(newRecipe).filter((k)=>k.startsWith('ingredient-')).map((k)=>k.split('-')[1]));
+        const ingredients = [
+            ...ingredientNums
+        ].sort((a, b)=>+a - +b).map((num)=>({
+                quantity: newRecipe[`ingredient-${num}-quantity`] ? +newRecipe[`ingredient-${num}-quantity`] : null,
+                unit: newRecipe[`ingredient-${num}-unit`] || '',
+                description: newRecipe[`ingredient-${num}-description`] || ''
+            })).filter((ing)=>ing.description);
+        // Spoonacular has no free upload endpoint —> store the recipe locally
         const recipe = {
+            // Generate a unique local ID (prefixed to avoid collision with Spoonacular IDs)
+            id: `user-${Date.now()}`,
             title: newRecipe.title,
-            source_url: newRecipe.sourceUrl,
-            image_url: newRecipe.image,
+            sourceUrl: newRecipe.sourceUrl,
+            image: newRecipe.image,
             publisher: newRecipe.publisher,
-            cooking_time: +newRecipe.cookingTime,
+            cookingTime: +newRecipe.cookingTime,
             servings: +newRecipe.servings,
-            ingredients
+            ingredients,
+            key: 'user'
         };
-        console.log(recipe);
-        // its send the recipe back, we await it
-        const data = await (0, _helpersJs.AJAX)(`${(0, _configJs.API_URL)}?key=${state.KEY}`, recipe);
-        state.recipe = createRecipeObject(data);
-        addBookmark(state.recipe);
+        state.recipe = recipe;
+        addBookmark(state.recipe); // persist in localStorage via bookmarks
     } catch (err) {
         throw err;
     }
@@ -2230,10 +2230,10 @@ parcelHelpers.export(exports, "TIMEOUT_SEC", ()=>TIMEOUT_SEC);
 parcelHelpers.export(exports, "RES_PER_PAGE", ()=>RES_PER_PAGE);
 parcelHelpers.export(exports, "KEY", ()=>KEY);
 parcelHelpers.export(exports, "MODAL_CLOSE_SEC", ()=>MODAL_CLOSE_SEC);
-const API_URL = 'https://forkify-api.jonas.io/api/v2/recipes/';
+const API_URL = 'https://api.spoonacular.com/recipes/';
 const TIMEOUT_SEC = 10;
 const RES_PER_PAGE = 10;
-const KEY = '2f5c9290-62af-416f-a693-3a7ac6970bf8';
+const KEY = '5bb2e2927f154e43b7a075fcffbcbbe1';
 const MODAL_CLOSE_SEC = 2.5;
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jnFvT":[function(require,module,exports,__globalThis) {
@@ -3082,6 +3082,7 @@ class AddRecipeView extends (0, _viewJsDefault.default) {
         super();
         this._addHandlerShowWindow();
         this._addHandlerHideWindow();
+        this._addHandlerIngredients();
     }
     toggleWindow() {
         this._overlay.classList.toggle('hidden');
@@ -3104,6 +3105,35 @@ class AddRecipeView extends (0, _viewJsDefault.default) {
             const data = Object.fromEntries(dataArr); // convert to object
             console.log(data);
             handler(data);
+        });
+    }
+    _addHandlerIngredients() {
+        const container = document.querySelector('#ingredients-list');
+        const addBtn = document.querySelector('.upload__ingredient-add');
+        addBtn.addEventListener('click', ()=>{
+            const count = container.querySelectorAll('.upload__ingredient-row').length + 1;
+            const html = `
+                <div class="upload__ingredient-row">
+                    <input type="number" step="any" name="ingredient-${count}-quantity" placeholder="Qty" />
+                    <input type="text" name="ingredient-${count}-unit" placeholder="Unit" />
+                    <input type="text" name="ingredient-${count}-description" placeholder="Description" />
+                    <button type="button" class="upload__ingredient-delete">&times;</button>
+                </div>
+            `;
+            container.insertAdjacentHTML('beforeend', html);
+        });
+        // Delete ingredient row (delegated)
+        container.addEventListener('click', (e)=>{
+            if (e.target.classList.contains('upload__ingredient-delete')) {
+                e.target.closest('.upload__ingredient-row').remove();
+                // Renumber remaining rows
+                container.querySelectorAll('.upload__ingredient-row').forEach((row, i)=>{
+                    const num = i + 1;
+                    row.querySelector('[name$="-quantity"]').name = `ingredient-${num}-quantity`;
+                    row.querySelector('[name$="-unit"]').name = `ingredient-${num}-unit`;
+                    row.querySelector('[name$="-description"]').name = `ingredient-${num}-description`;
+                });
+            }
         });
     }
     _generateMarkup() {}

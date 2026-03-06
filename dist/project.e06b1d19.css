@@ -768,7 +768,7 @@ body {
   outline: none;
 }
 
-.upload__column button {
+.upload__column > button {
   grid-column: 1 / span 2;
   justify-self: center;
   margin-top: 1rem;
@@ -780,6 +780,67 @@ body {
   margin-bottom: 1rem;
   font-size: 2.25rem;
   font-weight: 700;
+}
+
+.upload__column--ingredients {
+  flex-direction: column;
+  gap: 0;
+  display: flex;
+}
+
+.upload__ingredient-header {
+  grid-template-columns: 7rem 7rem 1fr 3.5rem;
+  gap: .6rem;
+  padding: 0 0 .6rem;
+  display: grid;
+}
+
+.upload__ingredient-header span {
+  color: #918581;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.upload__ingredient-list {
+  flex-direction: column;
+  gap: .8rem;
+  max-height: 28rem;
+  padding-right: .5rem;
+  display: flex;
+  overflow-y: auto;
+}
+
+.upload__ingredient-row {
+  grid-template-columns: 7rem 7rem 1fr 3.5rem;
+  align-items: center;
+  gap: .6rem;
+  display: grid;
+}
+
+.upload__ingredient-delete {
+  color: #615551;
+  cursor: pointer;
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: .5rem;
+  padding: .4rem;
+  font-size: 2rem;
+  line-height: 1;
+  transition: all .2s;
+}
+
+.upload__ingredient-delete:hover {
+  color: #fff;
+  background-color: #f38e82;
+  border-color: #f38e82;
+}
+
+.upload__ingredient-add {
+  cursor: pointer;
+  align-self: flex-start;
+  margin-top: 1.2rem;
 }
 
 .upload__btn {
