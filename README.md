@@ -1,4 +1,4 @@
-A high-performance recipe application built to master advanced JavaScript concepts. Users can search for thousands of recipes, adjust servings, save favorites, and manage a persistent shopping list.
+A high-performance recipe website built for web to master advanced JavaScript concepts. Users can search for thousands of recipes, adjust servings, save favorites, and manage a persistent shopping list.
 
   Key Technical Pillars:
    * Architectural Pattern (MVC + Pub/Sub): Designed with a robust Model-View-Controller structure. I implemented the Publisher/Subscriber design pattern to handle events, ensuring
