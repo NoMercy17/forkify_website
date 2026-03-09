@@ -1,7 +1,10 @@
 const API_URL = process.env.API_URL;
-const RES_PER_PAGE = Number(process.env.RES_PER_PAGE) || 10;
+const RES_PER_PAGE = Number(process.env.RES_PER_PAGE);
 const KEY = process.env.KEY;
 import { AJAX } from './helpers.js';
+import { MOCK_RECIPE } from './mockData.js';
+
+const DEV_MODE = false; // Set to false when API is available
 
 
 export const state = {
@@ -9,6 +12,7 @@ export const state = {
     search: {
         query: '',
         results: [],
+        originalResults: [],
         resultsPerPage: RES_PER_PAGE,
         page: 1,
     },
@@ -32,6 +36,12 @@ const createRecipeObject = function(recipe){
             description: ing.name,
         })),
         ...(recipe.key && { key: recipe.key }), // for user-uploaded recipes stored locally
+        ...(recipe.nutrition?.nutrients && { nutrients: recipe.nutrition.nutrients }), // dynamic nutrients from API
+        // For user-uploaded recipes, we map individual fields if they exist
+        ...(recipe.calories && { calories: recipe.calories }),
+        ...(recipe.protein && { protein: recipe.protein }),
+        ...(recipe.carbs && { carbs: recipe.carbs }),
+        ...(recipe.fat && { fat: recipe.fat }),
     };
 };
 
@@ -42,24 +52,48 @@ export const loadRecipe = async function(id){
         if(userRecipe){
             state.recipe = userRecipe;
         } else {
-            const data = await AJAX(`${API_URL}${id}/information?apiKey=${KEY}`);
+            let data;
+            if(DEV_MODE) {
+                data = MOCK_RECIPE;
+            } else {
+                data = await AJAX(`${API_URL}${id}/information?apiKey=${KEY}&includeNutrition=true`);
+            }
             state.recipe = createRecipeObject(data);
         }
 
         state.recipe.bookmarked = state.bookmarks.some(bookmark => bookmark.id === state.recipe.id);
+        // console.log(state.recipe);
 
     }catch(err){
-        throw err;
+        // console.error(err + 'ours');
+        throw err; // throw error to propagate, to controller
     };
 };
 
 export const loadSearchResults = async function(query){
     try{
         state.search.query = query;
-        // Spoonacular complexSearch with full recipe info included
-        const data = await AJAX(
-            `${API_URL}complexSearch?query=${query}&apiKey=${KEY}&addRecipeInformation=true&number=50`
-        );
+
+        let data;
+        if (DEV_MODE) {
+            // Mock a search response containing our golden recipe
+            data = {
+                results: [
+                    {
+                        id: MOCK_RECIPE.id,
+                        title: MOCK_RECIPE.title,
+                        sourceName: MOCK_RECIPE.sourceName,
+                        image: MOCK_RECIPE.image,
+                        readyInMinutes: MOCK_RECIPE.readyInMinutes,
+                    }
+                ]
+            };
+        } else {
+            // Spoonacular complexSearch with full recipe info included
+            data = await AJAX(
+                `${API_URL}complexSearch?query=${query}&apiKey=${KEY}&addRecipeInformation=true&number=50`
+            );
+        }
 
         // Merge API results with any locally stored user recipes that match the query
         const localMatches = state.bookmarks.filter(
@@ -73,11 +107,14 @@ export const loadSearchResults = async function(query){
                 title: rec.title,
                 publisher: rec.sourceName || rec.creditsText || 'Unknown',
                 image: rec.image,
+                cookingTime: rec.readyInMinutes,
             }))
         ];
+        state.search.originalResults = [...state.search.results];
         state.search.page = 1; // reset page to 1 when new search is made
 
     }catch(err){
+        // console.log(err + 'search');
         throw err;
     };
 };
@@ -91,14 +128,42 @@ export const getSearchResultsPage = function(page = state.search.page){
     return state.search.results.slice(start, end); // -1 at the end because of slice
 };
 
+export const filterResults = function (maxTime) {
+    if (maxTime === 0 || maxTime === 'all') {
+        state.search.results = [...state.search.originalResults];
+    } else {
+        state.search.results = state.search.originalResults.filter(
+            rec => rec.cookingTime <= maxTime
+        );
+    }
+    state.search.page = 1;
+};
+
 
 export const updateServings = function(newServings){
+    // Update ingredients
     state.recipe.ingredients.forEach(ingredient => {
         ingredient.quantity = 
         ingredient.quantity * newServings / state.recipe.servings; 
-    });; 
+    });
 
-    
+    // Update nutrients
+    if (state.recipe.nutrients) {
+        state.recipe.nutrients.forEach(nut => {
+            // Scale both the amount and the daily percentage
+            nut.amount = nut.amount * newServings / state.recipe.servings;
+            if (nut.percentOfDailyNeeds) {
+                nut.percentOfDailyNeeds = nut.percentOfDailyNeeds * newServings / state.recipe.servings;
+            }
+        });
+    }
+
+    // Update individual fields (for user-uploaded recipes)
+    if (state.recipe.calories) state.recipe.calories = state.recipe.calories * newServings / state.recipe.servings;
+    if (state.recipe.protein) state.recipe.protein = state.recipe.protein * newServings / state.recipe.servings;
+    if (state.recipe.carbs) state.recipe.carbs = state.recipe.carbs * newServings / state.recipe.servings;
+    if (state.recipe.fat) state.recipe.fat = state.recipe.fat * newServings / state.recipe.servings;
+
     state.recipe.servings = newServings;
 };
 

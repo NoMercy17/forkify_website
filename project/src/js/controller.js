@@ -6,7 +6,7 @@ import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
 import listView from './views/listView.js';
-const MODAL_CLOSE_SEC = Number(process.env.MODAL_CLOSE_SEC) || 2.5;
+import filterView from './views/filterView.js';
 
 // firefox additions
 import '@fontsource/nunito-sans/400.css';
@@ -17,6 +17,7 @@ import 'core-js/stable'; // for polyfilling everything else
 import 'regenerator-runtime/runtime';// for polyfilling async await
 
 
+const MODAL_CLOSE_SEC = Number(process.env.MODAL_CLOSE_SEC);
 
 ///////////////////////////////////////
 
@@ -59,12 +60,15 @@ const controlSearchResults = async function(){
 
     await model.loadSearchResults(query);
 
+    // Render filter UI
+    filterView.renderFilter();
+
     resultsView.render(model.getSearchResultsPage());
 
     // Render initial pagination
     paginationView.render(model.state.search);
   }catch(err){
-    resultsView.renderError();
+    // console.log(err);
   }
 }
 
@@ -86,6 +90,18 @@ const controlServings = function(newServings){
   recipeView.update(model.state.recipe);
 
 }
+
+const controlFilter = function (maxTime) {
+  // 1) Filter results in state
+  model.filterResults(maxTime);
+
+  // 2) Render NEW results
+  resultsView.render(model.getSearchResultsPage());
+
+  // 3) Render NEW pagination buttons
+  paginationView.render(model.state.search);
+};
+
 
 const controlAddBookmark = function(){
   if(!model.state.recipe.bookmarked)
@@ -128,6 +144,7 @@ const controlAddRecipe = async function(newRecipe){
     addRecipeView.scheduleClose(MODAL_CLOSE_SEC);
 
   }catch(err){
+      // console.error(err+"upload");
       addRecipeView.renderError(err.message);
   }
   // Upload new recipe
@@ -165,6 +182,8 @@ const init = function(){
   searchView.addHandlerSearch(controlSearchResults);
 
   paginationView.addHandlerClick(controlPagination);
+
+  filterView.addHandlerFilter(controlFilter);
 
   addRecipeView._addHandlerUpload(controlAddRecipe)
 

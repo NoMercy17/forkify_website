@@ -10,6 +10,7 @@ class PaginationView extends View{
             if(!btn) return;
 
             const goToPage = +btn.dataset.goto;
+            // console.log(goToPage);
             handler(goToPage);
             
         })
@@ -18,6 +19,7 @@ class PaginationView extends View{
     _generateMarkup(){
         const currentPage = this._data.page;
         const numPages = Math.ceil(this._data.results.length / this._data.resultsPerPage);
+        // console.log(numPages);
 
         // page 1 and there are other pages
         if(currentPage === 1 && numPages > 1){

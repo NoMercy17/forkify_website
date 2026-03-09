@@ -731,6 +731,8 @@ var _addRecipeViewJs = require("./views/addRecipeView.js");
 var _addRecipeViewJsDefault = parcelHelpers.interopDefault(_addRecipeViewJs);
 var _listViewJs = require("./views/listView.js");
 var _listViewJsDefault = parcelHelpers.interopDefault(_listViewJs);
+var _filterViewJs = require("./views/filterView.js");
+var _filterViewJsDefault = parcelHelpers.interopDefault(_filterViewJs);
 // firefox additions
 var _400Css = require("@fontsource/nunito-sans/400.css");
 var _600Css = require("@fontsource/nunito-sans/600.css");
@@ -763,6 +765,8 @@ const controlSearchResults = async function() {
         (0, _resultsViewJsDefault.default).renderSpinner();
         //console.log(resultsView);
         await _modelJs.loadSearchResults(query);
+        // Render filter UI
+        (0, _filterViewJsDefault.default).renderFilter();
         (0, _resultsViewJsDefault.default).render(_modelJs.getSearchResultsPage());
         // Render initial pagination
         (0, _paginationViewJsDefault.default).render(_modelJs.state.search);
@@ -781,6 +785,14 @@ const controlServings = function(newServings) {
     _modelJs.updateServings(newServings);
     // update only text / attributes and not fully re-rendering
     (0, _recipeViewJsDefault.default).update(_modelJs.state.recipe);
+};
+const controlFilter = function(maxTime) {
+    // 1) Filter results in state
+    _modelJs.filterResults(maxTime);
+    // 2) Render NEW results
+    (0, _resultsViewJsDefault.default).render(_modelJs.getSearchResultsPage());
+    // 3) Render NEW pagination buttons
+    (0, _paginationViewJsDefault.default).render(_modelJs.state.search);
 };
 const controlAddBookmark = function() {
     if (!_modelJs.state.recipe.bookmarked) _modelJs.addBookmark(_modelJs.state.recipe);
@@ -835,11 +847,12 @@ const init = function() {
     (0, _listViewJsDefault.default).addHandlerRemoveItem(controlRemoveFromList);
     (0, _searchViewJsDefault.default).addHandlerSearch(controlSearchResults);
     (0, _paginationViewJsDefault.default).addHandlerClick(controlPagination);
+    (0, _filterViewJsDefault.default).addHandlerFilter(controlFilter);
     (0, _addRecipeViewJsDefault.default)._addHandlerUpload(controlAddRecipe);
 };
 init();
 
-},{"core-js/modules/web.immediate.js":"bzsBv","./model.js":"5cviu","./views/recipeView.js":"bAzmy","./views/searchView.js":"lfI0T","./views/resultsView.js":"8effm","./views/paginationView.js":"1VCt0","./views/bookmarksView.js":"gIpUZ","./views/addRecipeView.js":"8tow6","./views/listView.js":"fg3OQ","@fontsource/nunito-sans/400.css":"aFD5k","@fontsource/nunito-sans/600.css":"clj2i","@fontsource/nunito-sans/700.css":"7LyPo","regenerator-runtime/runtime":"f6ot0","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"bzsBv":[function(require,module,exports,__globalThis) {
+},{"core-js/modules/web.immediate.js":"bzsBv","./model.js":"5cviu","./views/recipeView.js":"bAzmy","./views/searchView.js":"lfI0T","./views/resultsView.js":"8effm","./views/paginationView.js":"1VCt0","./views/bookmarksView.js":"gIpUZ","./views/addRecipeView.js":"8tow6","./views/listView.js":"fg3OQ","./views/filterView.js":"2VfJn","@fontsource/nunito-sans/400.css":"aFD5k","@fontsource/nunito-sans/600.css":"clj2i","@fontsource/nunito-sans/700.css":"7LyPo","regenerator-runtime/runtime":"f6ot0","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"bzsBv":[function(require,module,exports,__globalThis) {
 'use strict';
 // TODO: Remove this module from `core-js@4` since it's split to modules listed below
 require("52e9b3eefbbce1ed");
@@ -2099,6 +2112,7 @@ parcelHelpers.export(exports, "state", ()=>state);
 parcelHelpers.export(exports, "loadRecipe", ()=>loadRecipe);
 parcelHelpers.export(exports, "loadSearchResults", ()=>loadSearchResults);
 parcelHelpers.export(exports, "getSearchResultsPage", ()=>getSearchResultsPage);
+parcelHelpers.export(exports, "filterResults", ()=>filterResults);
 parcelHelpers.export(exports, "updateServings", ()=>updateServings);
 parcelHelpers.export(exports, "addToList", ()=>addToList);
 parcelHelpers.export(exports, "removeFromList", ()=>removeFromList);
@@ -2106,14 +2120,17 @@ parcelHelpers.export(exports, "addBookmark", ()=>addBookmark);
 parcelHelpers.export(exports, "deleteBookmark", ()=>deleteBookmark);
 parcelHelpers.export(exports, "uploadRecipe", ()=>uploadRecipe);
 var _helpersJs = require("./helpers.js");
+var _mockDataJs = require("./mockData.js");
 const API_URL = "https://api.spoonacular.com/recipes/";
 const RES_PER_PAGE = Number("10");
 const KEY = "5bb2e2927f154e43b7a075fcffbcbbe1";
+const DEV_MODE = false; // Set to false when API is available
 const state = {
     recipe: {},
     search: {
         query: '',
         results: [],
+        originalResults: [],
         resultsPerPage: RES_PER_PAGE,
         page: 1
     },
@@ -2137,6 +2154,22 @@ const createRecipeObject = function(recipe) {
             })),
         ...recipe.key && {
             key: recipe.key
+        },
+        ...recipe.nutrition?.nutrients && {
+            nutrients: recipe.nutrition.nutrients
+        },
+        // For user-uploaded recipes, we map individual fields if they exist
+        ...recipe.calories && {
+            calories: recipe.calories
+        },
+        ...recipe.protein && {
+            protein: recipe.protein
+        },
+        ...recipe.carbs && {
+            carbs: recipe.carbs
+        },
+        ...recipe.fat && {
+            fat: recipe.fat
         }
     };
 };
@@ -2146,7 +2179,9 @@ const loadRecipe = async function(id) {
         const userRecipe = state.bookmarks.find((b)=>b.id === id && b.key);
         if (userRecipe) state.recipe = userRecipe;
         else {
-            const data = await (0, _helpersJs.AJAX)(`${API_URL}${id}/information?apiKey=${KEY}`);
+            let data;
+            if (DEV_MODE) data = (0, _mockDataJs.MOCK_RECIPE);
+            else data = await (0, _helpersJs.AJAX)(`${API_URL}${id}/information?apiKey=${KEY}&includeNutrition=true`);
             state.recipe = createRecipeObject(data);
         }
         state.recipe.bookmarked = state.bookmarks.some((bookmark)=>bookmark.id === state.recipe.id);
@@ -2159,8 +2194,21 @@ const loadRecipe = async function(id) {
 const loadSearchResults = async function(query) {
     try {
         state.search.query = query;
-        // Spoonacular complexSearch with full recipe info included
-        const data = await (0, _helpersJs.AJAX)(`${API_URL}complexSearch?query=${query}&apiKey=${KEY}&addRecipeInformation=true&number=50`);
+        let data;
+        if (DEV_MODE) // Mock a search response containing our golden recipe
+        data = {
+            results: [
+                {
+                    id: (0, _mockDataJs.MOCK_RECIPE).id,
+                    title: (0, _mockDataJs.MOCK_RECIPE).title,
+                    sourceName: (0, _mockDataJs.MOCK_RECIPE).sourceName,
+                    image: (0, _mockDataJs.MOCK_RECIPE).image,
+                    readyInMinutes: (0, _mockDataJs.MOCK_RECIPE).readyInMinutes
+                }
+            ]
+        };
+        else // Spoonacular complexSearch with full recipe info included
+        data = await (0, _helpersJs.AJAX)(`${API_URL}complexSearch?query=${query}&apiKey=${KEY}&addRecipeInformation=true&number=50`);
         // Merge API results with any locally stored user recipes that match the query
         const localMatches = state.bookmarks.filter((b)=>b.key && b.title.toLowerCase().includes(query.toLowerCase()));
         state.search.results = [
@@ -2169,8 +2217,12 @@ const loadSearchResults = async function(query) {
                     id: String(rec.id),
                     title: rec.title,
                     publisher: rec.sourceName || rec.creditsText || 'Unknown',
-                    image: rec.image
+                    image: rec.image,
+                    cookingTime: rec.readyInMinutes
                 }))
+        ];
+        state.search.originalResults = [
+            ...state.search.results
         ];
         state.search.page = 1; // reset page to 1 when new search is made
     } catch (err) {
@@ -2184,10 +2236,29 @@ const getSearchResultsPage = function(page = state.search.page) {
     const end = page * RES_PER_PAGE;
     return state.search.results.slice(start, end); // -1 at the end because of slice
 };
+const filterResults = function(maxTime) {
+    if (maxTime === 0 || maxTime === 'all') state.search.results = [
+        ...state.search.originalResults
+    ];
+    else state.search.results = state.search.originalResults.filter((rec)=>rec.cookingTime <= maxTime);
+    state.search.page = 1;
+};
 const updateServings = function(newServings) {
+    // Update ingredients
     state.recipe.ingredients.forEach((ingredient)=>{
         ingredient.quantity = ingredient.quantity * newServings / state.recipe.servings;
     });
+    // Update nutrients
+    if (state.recipe.nutrients) state.recipe.nutrients.forEach((nut)=>{
+        // Scale both the amount and the daily percentage
+        nut.amount = nut.amount * newServings / state.recipe.servings;
+        if (nut.percentOfDailyNeeds) nut.percentOfDailyNeeds = nut.percentOfDailyNeeds * newServings / state.recipe.servings;
+    });
+    // Update individual fields (for user-uploaded recipes)
+    if (state.recipe.calories) state.recipe.calories = state.recipe.calories * newServings / state.recipe.servings;
+    if (state.recipe.protein) state.recipe.protein = state.recipe.protein * newServings / state.recipe.servings;
+    if (state.recipe.carbs) state.recipe.carbs = state.recipe.carbs * newServings / state.recipe.servings;
+    if (state.recipe.fat) state.recipe.fat = state.recipe.fat * newServings / state.recipe.servings;
     state.recipe.servings = newServings;
 };
 const persistBookmarks = function() {
@@ -2265,7 +2336,7 @@ const init = function() {
 };
 init();
 
-},{"./helpers.js":"5bj7w","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"5bj7w":[function(require,module,exports,__globalThis) {
+},{"./helpers.js":"5bj7w","./mockData.js":"9g6ln","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"5bj7w":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "AJAX", ()=>AJAX);
@@ -2335,7 +2406,101 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"bAzmy":[function(require,module,exports,__globalThis) {
+},{}],"9g6ln":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MOCK_RECIPE", ()=>MOCK_RECIPE);
+const MOCK_RECIPE = {
+    id: 663336,
+    title: "Pasta With Tomato Cream Sauce",
+    sourceName: "The Pioneer Woman",
+    sourceUrl: "http://thepioneerwoman.com/cooking/pasta-with-tomato-cream-sauce/",
+    image: "https://spoonacular.com/recipeImages/663336-556x370.jpg",
+    servings: 4,
+    readyInMinutes: 45,
+    extendedIngredients: [
+        {
+            amount: 1,
+            unit: "lb",
+            name: "pasta"
+        },
+        {
+            amount: 2,
+            unit: "tbsp",
+            name: "olive oil"
+        },
+        {
+            amount: 1,
+            unit: "cup",
+            name: "heavy cream"
+        },
+        {
+            amount: 2,
+            unit: "cups",
+            name: "tomato sauce"
+        }
+    ],
+    nutrition: {
+        nutrients: [
+            {
+                name: "Calories",
+                amount: 550,
+                unit: "kcal",
+                percentOfDailyNeeds: 27.5
+            },
+            {
+                name: "Fat",
+                amount: 32,
+                unit: "g",
+                percentOfDailyNeeds: 49.2
+            },
+            {
+                name: "Saturated Fat",
+                amount: 18,
+                unit: "g",
+                percentOfDailyNeeds: 112.5
+            },
+            {
+                name: "Carbohydrates",
+                amount: 58,
+                unit: "g",
+                percentOfDailyNeeds: 19.3
+            },
+            {
+                name: "Sugar",
+                amount: 12,
+                unit: "g",
+                percentOfDailyNeeds: 13.3
+            },
+            {
+                name: "Cholesterol",
+                amount: 95,
+                unit: "mg",
+                percentOfDailyNeeds: 31.6
+            },
+            {
+                name: "Sodium",
+                amount: 850,
+                unit: "mg",
+                percentOfDailyNeeds: 36.9
+            },
+            {
+                name: "Protein",
+                amount: 12,
+                unit: "g",
+                percentOfDailyNeeds: 24.0
+            },
+            {
+                name: "Fiber",
+                amount: 4,
+                unit: "g",
+                percentOfDailyNeeds: 16.0
+            }
+        ]
+    }
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"bAzmy":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _iconsSvg = require("url:../../img/icons.svg");
@@ -2380,6 +2545,41 @@ class RecipeView extends (0, _viewJsDefault.default) {
         });
     }
     _generateMarkup() {
+        // Extract main nutrients for the summary
+        const mainNutrientNames = [
+            'Calories',
+            'Protein',
+            'Carbohydrates',
+            'Fat'
+        ];
+        // Define the desired order for hierarchical display
+        const nutrientOrder = [
+            'Fat',
+            'Saturated Fat',
+            'Cholesterol',
+            'Sodium',
+            'Carbohydrates',
+            'Fiber',
+            'Sugar',
+            'Net Carbohydrates',
+            'Protein'
+        ];
+        // 1. Summary Nutrients (the "Big 4") - Force specific order
+        const summaryNutrients = mainNutrientNames.map((name)=>this._data.nutrients?.find((nut)=>nut.name === name)).filter(Boolean);
+        // 2. Detailed Nutrients (everything else + hierarchical ones)
+        const detailedNutrients = this._data.nutrients ? [
+            ...this._data.nutrients
+        ].filter((nut)=>![
+                'Calories'
+            ].includes(nut.name)) // Exclude calories from list
+        .sort((a, b)=>{
+            const indexA = nutrientOrder.indexOf(a.name);
+            const indexB = nutrientOrder.indexOf(b.name);
+            if (indexA === -1 && indexB === -1) return a.name.localeCompare(b.name);
+            if (indexA === -1) return 1;
+            if (indexB === -1) return -1;
+            return indexA - indexB;
+        }) : [];
         return `
             <figure class="recipe__fig">
                 <img src="${this._data.image}" alt="${this._data.title}" class="recipe__img" />
@@ -2442,6 +2642,22 @@ class RecipeView extends (0, _viewJsDefault.default) {
                 </button>
             </div>
 
+            <div class="recipe__nutrition">
+                <h2 class="heading--2">Nutrition Facts (per serving)</h2>
+                
+                <div class="recipe__nutrition-summary">
+                    ${summaryNutrients.length > 0 ? summaryNutrients.map(this._generateMarkupNutrientCard).join('') : this._generateDefaultNutritionMarkup()}
+                </div>
+
+                ${detailedNutrients.length > 0 ? `
+                    <div class="recipe__nutrition-details">
+                        <ul class="recipe__nutrition-list">
+                            ${detailedNutrients.map(this._generateMarkupNutrientRow).join('')}
+                        </ul>
+                    </div>
+                ` : ''}
+            </div>
+
             <div class="recipe__directions">
                 <h2 class="heading--2">How to cook it</h2>
                 <p class="recipe__directions-text">
@@ -2460,6 +2676,69 @@ class RecipeView extends (0, _viewJsDefault.default) {
                     </svg>
                 </a>
             </div>`;
+    }
+    _generateMarkupNutrientCard(nut) {
+        const labelMap = {
+            'Calories': 'Kcal',
+            'Carbohydrates': 'Carbs',
+            'Protein': 'Protein',
+            'Fat': 'Fat'
+        };
+        return `
+            <div class="recipe__nutrition-item">
+                <span class="recipe__nutrition-value">${Math.round(nut.amount)}</span>
+                <span class="recipe__nutrition-label">${nut.unit}</span>
+                <span class="recipe__nutrition-text">${labelMap[nut.name] || nut.name}</span>
+            </div>
+        `;
+    }
+    _generateMarkupNutrientRow(nut) {
+        // Define which nutrients should be indented
+        const subNutrientNames = [
+            'Saturated Fat',
+            'Sugar',
+            'Net Carbohydrates',
+            'Fiber'
+        ];
+        const isSub = subNutrientNames.includes(nut.name);
+        return `
+            <li class="recipe__nutrition-row ${isSub ? 'recipe__nutrition-row--sub' : ''}">
+                <span class="recipe__nutrition-name">${nut.name}</span>
+                <span class="recipe__nutrition-amount">${Math.round(nut.amount)}${nut.unit}</span>
+                <span class="recipe__nutrition-daily">${Math.round(nut.percentOfDailyNeeds)}%</span>
+            </li>
+        `;
+    }
+    _generateDefaultNutritionMarkup() {
+        const defaultNutrients = [
+            {
+                value: this._data.calories,
+                label: 'kcal',
+                text: 'Kcal'
+            },
+            {
+                value: this._data.protein,
+                label: 'g',
+                text: 'Protein'
+            },
+            {
+                value: this._data.carbs,
+                label: 'g',
+                text: 'Carbs'
+            },
+            {
+                value: this._data.fat,
+                label: 'g',
+                text: 'Fat'
+            }
+        ];
+        return defaultNutrients.map((nut)=>`
+            <div class="recipe__nutrition-item">
+                <span class="recipe__nutrition-value">${nut.value || '---'}</span>
+                <span class="recipe__nutrition-label">${nut.label}</span>
+                <span class="recipe__nutrition-text">${nut.text}</span>
+            </div>
+        `).join('');
     }
     _generateMarkupIngredient(ing) {
         return `
@@ -2900,12 +3179,10 @@ class View {
         const currElements = Array.from(this._parentElement.querySelectorAll('*'));
         newElements.forEach((newEl, i)=>{
             const currentEl = currElements[i];
-            //console.log(currentEl, newEl.isEqualNode(currentEl));
             // Update changed TEXT
-            if (!newEl.isEqualNode(currentEl) && newEl.firstChild?.nodeValue.trim() !== '') currentEl.textContent = newEl.textContent;
+            if (!newEl.isEqualNode(currentEl) && newEl.firstChild?.nodeValue?.trim() !== '') currentEl.textContent = newEl.textContent;
             // Update changed ATTRIBUTES
-            if (!newEl.isEqualNode(currentEl)) //console.log(newEl.attributes);
-            Array.from(newEl.attributes).forEach((attr)=>currentEl.setAttribute(attr.name, attr.value));
+            if (!newEl.isEqualNode(currentEl)) Array.from(newEl.attributes).forEach((attr)=>currentEl.setAttribute(attr.name, attr.value));
         });
     }
     _clear() {
@@ -3016,6 +3293,13 @@ class PreviewView extends (0, _viewJsDefault.default) {
                 <div class="preview__data">
                     <h4 class="preview__title">${this._data.title}</h4>
                     <p class="preview__publisher">${this._data.publisher}</p>
+                    <div class="preview__info">
+                        <svg>
+                            <use href="${0, _iconsSvgDefault.default}#icon-clock"></use>
+                        </svg>
+                        <span class="preview__info-data">${this._data.cookingTime || '?'}</span>
+                        <span class="preview__info-text">min</span>
+                    </div>
                     <div class="preview__user-generated ${this._data.key ? '' : 'hidden'}">
                         <svg>
                             <use href="${0, _iconsSvgDefault.default}#icon-user"></use>
@@ -3305,7 +3589,43 @@ class ListView extends (0, _viewJsDefault.default) {
 }
 exports.default = new ListView();
 
-},{"./View.js":"8Rd9W","url:../../img/icons.svg":"gAozM","fraction.js":"md6n5","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"aFD5k":[function() {},{}],"clj2i":[function() {},{}],"7LyPo":[function() {},{}],"f6ot0":[function(require,module,exports,__globalThis) {
+},{"./View.js":"8Rd9W","url:../../img/icons.svg":"gAozM","fraction.js":"md6n5","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"2VfJn":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _viewJs = require("./View.js");
+var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
+class FilterView extends (0, _viewJsDefault.default) {
+    _parentElement = document.querySelector('.filter');
+    addHandlerFilter(handler) {
+        this._parentElement.addEventListener('change', function(e) {
+            const btn = e.target.closest('.search-results__filter');
+            if (!btn) return;
+            const filterValue = btn.value;
+            handler(filterValue);
+        });
+    }
+    _generateMarkup() {
+        return `
+      <div class="search-results__filter-container">
+        <label class="search-results__filter-label" for="filter-cooking-time">Max Cooking Time:</label>
+        <select id="filter-cooking-time" class="search-results__filter">
+          <option value="all">All</option>
+          <option value="20">Under 20 mins</option>
+          <option value="40">Under 40 mins</option>
+          <option value="60">Under 60 mins</option>
+        </select>
+      </div>
+    `;
+    }
+    renderFilter() {
+        const markup = this._generateMarkup();
+        this._clear();
+        this._parentElement.insertAdjacentHTML('afterbegin', markup);
+    }
+}
+exports.default = new FilterView();
+
+},{"./View.js":"8Rd9W","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"aFD5k":[function() {},{}],"clj2i":[function() {},{}],"7LyPo":[function() {},{}],"f6ot0":[function(require,module,exports,__globalThis) {
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *

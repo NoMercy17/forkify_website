@@ -35,19 +35,18 @@ export default class View{
 
             newElements.forEach((newEl, i)=>{
                 const currentEl = currElements[i];
-                //console.log(currentEl, newEl.isEqualNode(currentEl));
-
 
                 // Update changed TEXT
-                if(!newEl.isEqualNode(currentEl) && newEl.firstChild?.nodeValue.trim()!== ''){
+                if (
+                    !newEl.isEqualNode(currentEl) &&
+                    newEl.firstChild?.nodeValue?.trim() !== ''
+                ) {
                     currentEl.textContent = newEl.textContent;
                 }
 
 
                 // Update changed ATTRIBUTES
                 if(!newEl.isEqualNode(currentEl)){
-                    //console.log(newEl.attributes);
-
                     Array.from(newEl.attributes)
                         .forEach(attr => currentEl.setAttribute(attr.name, attr.value));
                 }

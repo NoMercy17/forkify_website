@@ -1,5 +1,14 @@
-.env
+# Gemini AI state and Maestro sessions
+.gemini/
+GEMINI.md
+conductor/
+
+# Node modules
 node_modules/
-dist/
+
+# Local environment variables
+.env
+
+# Build artifacts
 .parcel-cache/
-.cache/
+dist/

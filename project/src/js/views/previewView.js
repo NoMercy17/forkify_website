@@ -20,6 +20,13 @@ class PreviewView extends View{
                 <div class="preview__data">
                     <h4 class="preview__title">${this._data.title}</h4>
                     <p class="preview__publisher">${this._data.publisher}</p>
+                    <div class="preview__info">
+                        <svg>
+                            <use href="${icons}#icon-clock"></use>
+                        </svg>
+                        <span class="preview__info-data">${this._data.cookingTime || '?'}</span>
+                        <span class="preview__info-text">min</span>
+                    </div>
                     <div class="preview__user-generated ${
                         this._data.key ? '' : 'hidden'
                     }">

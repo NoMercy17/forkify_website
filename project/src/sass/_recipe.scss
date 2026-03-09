@@ -158,6 +158,110 @@
   }
 
   ///////////
+  // NUTRITION
+  &__nutrition {
+    padding: 5rem 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+  }
+
+  &__nutrition-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    margin-top: 3rem;
+    background-color: $color-grey-light-1;
+    padding: 2.5rem;
+    border-radius: 9px;
+
+    @media only screen and (max-width: $bp-small) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__nutrition-item {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s;
+  }
+
+  &__nutrition-value {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: $color-primary;
+  }
+
+  &__nutrition-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $color-grey-dark-2;
+    margin-bottom: 0.2rem;
+  }
+
+  &__nutrition-text {
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $color-grey-dark-1;
+  }
+
+  &__nutrition-details {
+    width: 100%;
+    margin-top: 4rem;
+    padding: 0 1rem;
+  }
+
+  &__nutrition-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__nutrition-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid $color-grey-light-2;
+    font-size: 1.5rem;
+
+    &--sub {
+      padding-left: 3rem;
+      font-size: 1.4rem;
+      color: $color-grey-dark-2;
+      background-color: rgba($color-grey-light-1, 0.3);
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__nutrition-name {
+    font-weight: 600;
+    color: inherit;
+  }
+
+  &__nutrition-amount {
+    margin-left: auto;
+    margin-right: 3rem;
+    color: $color-grey-dark-2;
+  }
+
+  &__nutrition-daily {
+    font-weight: 700;
+    color: $color-primary;
+    width: 5rem;
+    text-align: right;
+  }
+
+  ///////////
   // DIRECTIONS
   &__directions {
     padding: 5rem 10rem;

@@ -94,6 +94,7 @@
       </header>
 
       <div class="search-results">
+        <div class="filter"></div>
         <ul class="results">
           <!-- 
           <li class="preview">
@@ -309,6 +310,18 @@
           <button type="button" class="btn--small upload__ingredient-add">
             <span>＋ Add Ingredient</span>
           </button>
+        </div>
+
+        <div class="upload__column">
+          <h3 class="upload__heading">Nutrition Data</h3>
+          <label>Calories (kcal)</label>
+          <input name="calories" type="number" min="0" placeholder="e.g. 450" />
+          <label>Protein (g)</label>
+          <input name="protein" type="number" min="0" placeholder="e.g. 25" />
+          <label>Carbs (g)</label>
+          <input name="carbs" type="number" min="0" placeholder="e.g. 60" />
+          <label>Fat (g)</label>
+          <input name="fat" type="number" min="0" placeholder="e.g. 15" />
         </div>
 
         <button class="btn upload__btn">
